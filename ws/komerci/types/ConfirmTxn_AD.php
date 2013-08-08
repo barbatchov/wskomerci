@@ -4,8 +4,9 @@ namespace ws\komerci\types;
 
 use \ws\komerci\KomerciEntityAbstract;
 use \ws\komerci\KomerciServiceInterface;
+use \ws\komerci\decorators\KomerciValidableInterface;
 
-class ConfirmTxn_AD extends KomerciEntityAbstract implements KomerciServiceInterface {
+class ConfirmTxn_AD extends KomerciEntityAbstract implements KomerciServiceInterface, KomerciValidableInterface {
      /** @var \string */
     protected $Data;
 

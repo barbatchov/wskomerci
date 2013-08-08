@@ -4,8 +4,9 @@ namespace ws\komerci\types;
 
 use \ws\komerci\KomerciEntityAbstract;
 use \ws\komerci\KomerciServiceInterface;
+use \ws\komerci\decorators\KomerciValidableInterface;
 
-class ReversalTxn extends KomerciEntityAbstract implements KomerciServiceInterface {
+class ReversalTxn extends KomerciEntityAbstract implements KomerciServiceInterface, KomerciValidableInterface {
      /** @var \string */
     protected $Filiacao;
 

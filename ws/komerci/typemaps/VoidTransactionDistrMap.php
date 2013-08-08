@@ -1,0 +1,35 @@
+<?php
+namespace ws\komerci\typemaps;
+
+use \ws\komerci\typemaps\GenericAttributes;
+
+class VoidTransactionDistrMap implements TypemapInterface {
+    const TOTAL = 'Total';
+    const FILIACAO = 'Filiacao';
+    const DATA = 'Data';
+    const NUM_C_V = 'NumCV';
+    const NUM_AUTOR = 'NumAutor';
+    const CONCENTRADOR = 'Concentrador';
+    const DISTRIBUIDOR = 'Distribuidor';
+    const USR = 'Usr';
+    const PWD = 'Pwd';
+
+    /**
+     * @return \ws\komerci\typemaps\GenericAttributes
+     */
+    public function getProperty($name = '') {
+        $array = array(
+            'Total' => array('name' => 'Total', 'type' => 'string', 'size' => null),
+            'Filiacao' => array('name' => 'Filiacao', 'type' => 'string', 'size' => null),
+            'Data' => array('name' => 'Data', 'type' => 'string', 'size' => null),
+            'NumCV' => array('name' => 'NumCV', 'type' => 'string', 'size' => null),
+            'NumAutor' => array('name' => 'NumAutor', 'type' => 'string', 'size' => null),
+            'Concentrador' => array('name' => 'Concentrador', 'type' => 'string', 'size' => null),
+            'Distribuidor' => array('name' => 'Distribuidor', 'type' => 'string', 'size' => null),
+            'Usr' => array('name' => 'Usr', 'type' => 'string', 'size' => null),
+            'Pwd' => array('name' => 'Pwd', 'type' => 'string', 'size' => null)
+        );
+    
+        return (isset($array[$name])) ? new GenericAttributes($array[$name]) : null;
+    }
+}

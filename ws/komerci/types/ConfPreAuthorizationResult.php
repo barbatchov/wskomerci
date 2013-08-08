@@ -4,8 +4,9 @@ namespace ws\komerci\types;
 
 use \ws\komerci\KomerciEntityAbstract;
 use \ws\komerci\KomerciServiceInterface;
+use \ws\komerci\decorators\KomerciValidableInterface;
 
-class ConfPreAuthorizationResult extends KomerciEntityAbstract implements KomerciServiceInterface {
+class ConfPreAuthorizationResult extends KomerciEntityAbstract implements KomerciServiceInterface, KomerciValidableInterface {
      /** @var any */
     protected $Any;
 

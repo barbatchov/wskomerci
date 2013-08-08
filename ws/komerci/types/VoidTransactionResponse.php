@@ -4,8 +4,9 @@ namespace ws\komerci\types;
 
 use \ws\komerci\KomerciEntityAbstract;
 use \ws\komerci\KomerciServiceInterface;
+use \ws\komerci\decorators\KomerciValidableInterface;
 
-class VoidTransactionResponse extends KomerciEntityAbstract implements KomerciServiceInterface {
+class VoidTransactionResponse extends KomerciEntityAbstract implements KomerciServiceInterface, KomerciValidableInterface {
      /** @var \ws\komerci\types\VoidTransactionResult */
     protected $VoidTransactionResult;
 
