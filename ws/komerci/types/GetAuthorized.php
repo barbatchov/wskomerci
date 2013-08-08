@@ -1,0 +1,484 @@
+<?PHP
+
+namespace ws\komerci\types;
+
+use \ws\komerci\KomerciEntityAbstract;
+use \ws\komerci\KomerciServiceInterface;
+
+class GetAuthorized extends KomerciEntityAbstract implements KomerciServiceInterface {
+     /** @var string */
+    private $Total;
+
+     /** @var string */
+    private $Transacao;
+
+     /** @var string */
+    private $Parcelas;
+
+     /** @var string */
+    private $Filiacao;
+
+     /** @var string */
+    private $NumPedido;
+
+     /** @var string */
+    private $Nrcartao;
+
+     /** @var string */
+    private $CVC2;
+
+     /** @var string */
+    private $Mes;
+
+     /** @var string */
+    private $Ano;
+
+     /** @var string */
+    private $Portador;
+
+     /** @var string */
+    private $IATA;
+
+     /** @var string */
+    private $Distribuidor;
+
+     /** @var string */
+    private $Concentrador;
+
+     /** @var string */
+    private $TaxaEmbarque;
+
+     /** @var string */
+    private $Entrada;
+
+     /** @var string */
+    private $Pax1;
+
+     /** @var string */
+    private $Pax2;
+
+     /** @var string */
+    private $Pax3;
+
+     /** @var string */
+    private $Pax4;
+
+     /** @var string */
+    private $Numdoc1;
+
+     /** @var string */
+    private $Numdoc2;
+
+     /** @var string */
+    private $Numdoc3;
+
+     /** @var string */
+    private $Numdoc4;
+
+     /** @var string */
+    private $ConfTxn;
+
+     /** @var string */
+    private $Add_Data;
+
+    /**
+     * @return string
+     */
+    public function getTotal() {
+        return $this->Total;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTransacao() {
+        return $this->Transacao;
+    }
+
+    /**
+     * @return string
+     */
+    public function getParcelas() {
+        return $this->Parcelas;
+    }
+
+    /**
+     * @return string
+     */
+    public function getFiliacao() {
+        return $this->Filiacao;
+    }
+
+    /**
+     * @return string
+     */
+    public function getNumPedido() {
+        return $this->NumPedido;
+    }
+
+    /**
+     * @return string
+     */
+    public function getNrcartao() {
+        return $this->Nrcartao;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCVC2() {
+        return $this->CVC2;
+    }
+
+    /**
+     * @return string
+     */
+    public function getMes() {
+        return $this->Mes;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAno() {
+        return $this->Ano;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPortador() {
+        return $this->Portador;
+    }
+
+    /**
+     * @return string
+     */
+    public function getIATA() {
+        return $this->IATA;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDistribuidor() {
+        return $this->Distribuidor;
+    }
+
+    /**
+     * @return string
+     */
+    public function getConcentrador() {
+        return $this->Concentrador;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTaxaEmbarque() {
+        return $this->TaxaEmbarque;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEntrada() {
+        return $this->Entrada;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPax1() {
+        return $this->Pax1;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPax2() {
+        return $this->Pax2;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPax3() {
+        return $this->Pax3;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPax4() {
+        return $this->Pax4;
+    }
+
+    /**
+     * @return string
+     */
+    public function getNumdoc1() {
+        return $this->Numdoc1;
+    }
+
+    /**
+     * @return string
+     */
+    public function getNumdoc2() {
+        return $this->Numdoc2;
+    }
+
+    /**
+     * @return string
+     */
+    public function getNumdoc3() {
+        return $this->Numdoc3;
+    }
+
+    /**
+     * @return string
+     */
+    public function getNumdoc4() {
+        return $this->Numdoc4;
+    }
+
+    /**
+     * @return string
+     */
+    public function getConfTxn() {
+        return $this->ConfTxn;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAdd_Data() {
+        return $this->Add_Data;
+    }
+
+    /**
+     * @param string
+     * @return GetAuthorized
+     */
+    public function setTotal(string $param = null) {
+        $this->Total = $param;
+        return $this;
+    }
+
+    /**
+     * @param string
+     * @return GetAuthorized
+     */
+    public function setTransacao(string $param = null) {
+        $this->Transacao = $param;
+        return $this;
+    }
+
+    /**
+     * @param string
+     * @return GetAuthorized
+     */
+    public function setParcelas(string $param = null) {
+        $this->Parcelas = $param;
+        return $this;
+    }
+
+    /**
+     * @param string
+     * @return GetAuthorized
+     */
+    public function setFiliacao(string $param = null) {
+        $this->Filiacao = $param;
+        return $this;
+    }
+
+    /**
+     * @param string
+     * @return GetAuthorized
+     */
+    public function setNumPedido(string $param = null) {
+        $this->NumPedido = $param;
+        return $this;
+    }
+
+    /**
+     * @param string
+     * @return GetAuthorized
+     */
+    public function setNrcartao(string $param = null) {
+        $this->Nrcartao = $param;
+        return $this;
+    }
+
+    /**
+     * @param string
+     * @return GetAuthorized
+     */
+    public function setCVC2(string $param = null) {
+        $this->CVC2 = $param;
+        return $this;
+    }
+
+    /**
+     * @param string
+     * @return GetAuthorized
+     */
+    public function setMes(string $param = null) {
+        $this->Mes = $param;
+        return $this;
+    }
+
+    /**
+     * @param string
+     * @return GetAuthorized
+     */
+    public function setAno(string $param = null) {
+        $this->Ano = $param;
+        return $this;
+    }
+
+    /**
+     * @param string
+     * @return GetAuthorized
+     */
+    public function setPortador(string $param = null) {
+        $this->Portador = $param;
+        return $this;
+    }
+
+    /**
+     * @param string
+     * @return GetAuthorized
+     */
+    public function setIATA(string $param = null) {
+        $this->IATA = $param;
+        return $this;
+    }
+
+    /**
+     * @param string
+     * @return GetAuthorized
+     */
+    public function setDistribuidor(string $param = null) {
+        $this->Distribuidor = $param;
+        return $this;
+    }
+
+    /**
+     * @param string
+     * @return GetAuthorized
+     */
+    public function setConcentrador(string $param = null) {
+        $this->Concentrador = $param;
+        return $this;
+    }
+
+    /**
+     * @param string
+     * @return GetAuthorized
+     */
+    public function setTaxaEmbarque(string $param = null) {
+        $this->TaxaEmbarque = $param;
+        return $this;
+    }
+
+    /**
+     * @param string
+     * @return GetAuthorized
+     */
+    public function setEntrada(string $param = null) {
+        $this->Entrada = $param;
+        return $this;
+    }
+
+    /**
+     * @param string
+     * @return GetAuthorized
+     */
+    public function setPax1(string $param = null) {
+        $this->Pax1 = $param;
+        return $this;
+    }
+
+    /**
+     * @param string
+     * @return GetAuthorized
+     */
+    public function setPax2(string $param = null) {
+        $this->Pax2 = $param;
+        return $this;
+    }
+
+    /**
+     * @param string
+     * @return GetAuthorized
+     */
+    public function setPax3(string $param = null) {
+        $this->Pax3 = $param;
+        return $this;
+    }
+
+    /**
+     * @param string
+     * @return GetAuthorized
+     */
+    public function setPax4(string $param = null) {
+        $this->Pax4 = $param;
+        return $this;
+    }
+
+    /**
+     * @param string
+     * @return GetAuthorized
+     */
+    public function setNumdoc1(string $param = null) {
+        $this->Numdoc1 = $param;
+        return $this;
+    }
+
+    /**
+     * @param string
+     * @return GetAuthorized
+     */
+    public function setNumdoc2(string $param = null) {
+        $this->Numdoc2 = $param;
+        return $this;
+    }
+
+    /**
+     * @param string
+     * @return GetAuthorized
+     */
+    public function setNumdoc3(string $param = null) {
+        $this->Numdoc3 = $param;
+        return $this;
+    }
+
+    /**
+     * @param string
+     * @return GetAuthorized
+     */
+    public function setNumdoc4(string $param = null) {
+        $this->Numdoc4 = $param;
+        return $this;
+    }
+
+    /**
+     * @param string
+     * @return GetAuthorized
+     */
+    public function setConfTxn(string $param = null) {
+        $this->ConfTxn = $param;
+        return $this;
+    }
+
+    /**
+     * @param string
+     * @return GetAuthorized
+     */
+    public function setAdd_Data(string $param = null) {
+        $this->Add_Data = $param;
+        return $this;
+    }
+
+}
