@@ -3,22 +3,39 @@ namespace ws\komerci;
 
 abstract class KomerciEntityAbstract {
 	
+	/**
+	 * Constructor used to populate data
+	 * 
+	 * @param array $data
+	 */
 	public function __construct($data = array()) {
-		
+		$this->populate($data);		
 	}
 	
+	/**
+	 * Populates the object with a given array
+	 * 
+	 * @param array $data
+	 */
 	public function populate($data = array()) {
-		$reflection = new \ReflectionObject($this);
+		$objectVars = get_object_vars($this);
 		
-		$methods = $reflection->getMethods(\ReflectionMethod::IS_PUBLIC);
-		//foreach($methods as $method)
+		foreach ($objectVars as $attr => $value) {
+			$attr = ucfirst($attr);
+			(!isset($data[$attr])) ? null : $this->{'set' . $attr}($data[$attr]);
+		}
 	}
 	
-	public function toArray() {
-		return get_object_vars($this);
+	/**
+	 * Returns an array
+	 * 
+	 * @return array
+	 */
+	public function toArray($returnVoid = false) {
+		if ($returnVoid) {
+			return get_object_vars($this);
+		}
+		
+		return array_filter(get_object_vars($this), create_function('$v', 'return null != $v;'));
 	}
-	
-	
 }
-
-?>

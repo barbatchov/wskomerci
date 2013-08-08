@@ -1,23 +1,13 @@
 <?php
-namespace test\ws\komerci\types;
+use \test\ws\komerci\BasicEntityTestCase;
+use \ws\komerci\types\ConfirmTxn_AD;
 
-use ws\komerci\types\ConfirmTxn_AD;
+class ConfirmTxn_ADTest extends BasicEntityTestCase {
 
-require_once ('PHPUnit/Framework/TestCase.php');
-
-class ConfirmTxn_ADTest extends \PHPUnit_Framework_TestCase {
-	
-	public function _testShouldPopulate() {
-		$entity = new ConfirmTxn_AD();
-		
-	}
-	
-	public function testShoudGetArray() {
-		$entity = new \ws\komerci\types\ConfirmTxn_AD();
-		$result = $entity->toArray();
-		
-		$this->assertInternalType('array', $result);
-	}
-	
-	
+    /**
+     * @return \ws\komerci\types\ConfirmTxn_AD
+     */
+    public function getEntity() {
+        return new ConfirmTxn_AD();
+    }
 }

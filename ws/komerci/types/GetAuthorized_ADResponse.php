@@ -7,7 +7,7 @@ use \ws\komerci\KomerciServiceInterface;
 
 class GetAuthorized_ADResponse extends KomerciEntityAbstract implements KomerciServiceInterface {
      /** @var \ws\komerci\types\GetAuthorized_ADResult */
-    private $GetAuthorized_ADResult;
+    protected $GetAuthorized_ADResult;
 
     /**
      * @return \ws\komerci\types\GetAuthorized_ADResult
@@ -18,7 +18,7 @@ class GetAuthorized_ADResponse extends KomerciEntityAbstract implements KomerciS
 
     /**
      * @param \ws\komerci\types\GetAuthorized_ADResult
-     * @return \ws\komerci\types\GetAuthorized_ADResponse
+     * @return GetAuthorized_ADResponse
      */
     public function setGetAuthorized_ADResult(\ws\komerci\types\GetAuthorized_ADResult $param = null) {
         $this->GetAuthorized_ADResult = $param;

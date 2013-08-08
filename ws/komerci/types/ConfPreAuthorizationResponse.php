@@ -7,7 +7,7 @@ use \ws\komerci\KomerciServiceInterface;
 
 class ConfPreAuthorizationResponse extends KomerciEntityAbstract implements KomerciServiceInterface {
      /** @var \ws\komerci\types\ConfPreAuthorizationResult */
-    private $ConfPreAuthorizationResult;
+    protected $ConfPreAuthorizationResult;
 
     /**
      * @return \ws\komerci\types\ConfPreAuthorizationResult
@@ -18,7 +18,7 @@ class ConfPreAuthorizationResponse extends KomerciEntityAbstract implements Kome
 
     /**
      * @param \ws\komerci\types\ConfPreAuthorizationResult
-     * @return \ws\komerci\types\ConfPreAuthorizationResponse
+     * @return ConfPreAuthorizationResponse
      */
     public function setConfPreAuthorizationResult(\ws\komerci\types\ConfPreAuthorizationResult $param = null) {
         $this->ConfPreAuthorizationResult = $param;

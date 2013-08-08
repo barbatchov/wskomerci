@@ -6,154 +6,154 @@ use \ws\komerci\KomerciEntityAbstract;
 use \ws\komerci\KomerciServiceInterface;
 
 class VoidConfPreAuthorization extends KomerciEntityAbstract implements KomerciServiceInterface {
-     /** @var string */
-    private $Filiacao;
+     /** @var \string */
+    protected $Filiacao;
 
-     /** @var string */
-    private $Total;
+     /** @var \string */
+    protected $Total;
 
-     /** @var string */
-    private $Data;
+     /** @var \string */
+    protected $Data;
 
-     /** @var string */
-    private $NumAutor;
+     /** @var \string */
+    protected $NumAutor;
 
-     /** @var string */
-    private $NumCV;
+     /** @var \string */
+    protected $NumCV;
 
-     /** @var string */
-    private $Concentrador;
+     /** @var \string */
+    protected $Concentrador;
 
-     /** @var string */
-    private $Usr;
+     /** @var \string */
+    protected $Usr;
 
-     /** @var string */
-    private $Pwd;
+     /** @var \string */
+    protected $Pwd;
 
     /**
-     * @return string
+     * @return \string
      */
     public function getFiliacao() {
         return $this->Filiacao;
     }
 
     /**
-     * @return string
+     * @return \string
      */
     public function getTotal() {
         return $this->Total;
     }
 
     /**
-     * @return string
+     * @return \string
      */
     public function getData() {
         return $this->Data;
     }
 
     /**
-     * @return string
+     * @return \string
      */
     public function getNumAutor() {
         return $this->NumAutor;
     }
 
     /**
-     * @return string
+     * @return \string
      */
     public function getNumCV() {
         return $this->NumCV;
     }
 
     /**
-     * @return string
+     * @return \string
      */
     public function getConcentrador() {
         return $this->Concentrador;
     }
 
     /**
-     * @return string
+     * @return \string
      */
     public function getUsr() {
         return $this->Usr;
     }
 
     /**
-     * @return string
+     * @return \string
      */
     public function getPwd() {
         return $this->Pwd;
     }
 
     /**
-     * @param string
+     * @param \string
      * @return VoidConfPreAuthorization
      */
-    public function setFiliacao(string $param = null) {
+    public function setFiliacao($param = null) {
         $this->Filiacao = $param;
         return $this;
     }
 
     /**
-     * @param string
+     * @param \string
      * @return VoidConfPreAuthorization
      */
-    public function setTotal(string $param = null) {
+    public function setTotal($param = null) {
         $this->Total = $param;
         return $this;
     }
 
     /**
-     * @param string
+     * @param \string
      * @return VoidConfPreAuthorization
      */
-    public function setData(string $param = null) {
+    public function setData($param = null) {
         $this->Data = $param;
         return $this;
     }
 
     /**
-     * @param string
+     * @param \string
      * @return VoidConfPreAuthorization
      */
-    public function setNumAutor(string $param = null) {
+    public function setNumAutor($param = null) {
         $this->NumAutor = $param;
         return $this;
     }
 
     /**
-     * @param string
+     * @param \string
      * @return VoidConfPreAuthorization
      */
-    public function setNumCV(string $param = null) {
+    public function setNumCV($param = null) {
         $this->NumCV = $param;
         return $this;
     }
 
     /**
-     * @param string
+     * @param \string
      * @return VoidConfPreAuthorization
      */
-    public function setConcentrador(string $param = null) {
+    public function setConcentrador($param = null) {
         $this->Concentrador = $param;
         return $this;
     }
 
     /**
-     * @param string
+     * @param \string
      * @return VoidConfPreAuthorization
      */
-    public function setUsr(string $param = null) {
+    public function setUsr($param = null) {
         $this->Usr = $param;
         return $this;
     }
 
     /**
-     * @param string
+     * @param \string
      * @return VoidConfPreAuthorization
      */
-    public function setPwd(string $param = null) {
+    public function setPwd($param = null) {
         $this->Pwd = $param;
         return $this;
     }

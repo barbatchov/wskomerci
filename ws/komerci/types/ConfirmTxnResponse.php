@@ -7,7 +7,7 @@ use \ws\komerci\KomerciServiceInterface;
 
 class ConfirmTxnResponse extends KomerciEntityAbstract implements KomerciServiceInterface {
      /** @var \ws\komerci\types\ConfirmTxnResult */
-    private $ConfirmTxnResult;
+    protected $ConfirmTxnResult;
 
     /**
      * @return \ws\komerci\types\ConfirmTxnResult
@@ -18,7 +18,7 @@ class ConfirmTxnResponse extends KomerciEntityAbstract implements KomerciService
 
     /**
      * @param \ws\komerci\types\ConfirmTxnResult
-     * @return \ws\komerci\types\ConfirmTxnResponse
+     * @return ConfirmTxnResponse
      */
     public function setConfirmTxnResult(\ws\komerci\types\ConfirmTxnResult $param = null) {
         $this->ConfirmTxnResult = $param;

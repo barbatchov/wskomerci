@@ -6,192 +6,192 @@ use \ws\komerci\KomerciEntityAbstract;
 use \ws\komerci\KomerciServiceInterface;
 
 class CouncilReport extends KomerciEntityAbstract implements KomerciServiceInterface {
-     /** @var string */
-    private $Filiacao;
+     /** @var \string */
+    protected $Filiacao;
 
-     /** @var string */
-    private $Distribuidor;
+     /** @var \string */
+    protected $Distribuidor;
 
-     /** @var string */
-    private $Data_Inicial;
+     /** @var \string */
+    protected $Data_Inicial;
 
-     /** @var string */
-    private $Data_Final;
+     /** @var \string */
+    protected $Data_Final;
 
-     /** @var string */
-    private $Tipo_Trx;
+     /** @var \string */
+    protected $Tipo_Trx;
 
-     /** @var string */
-    private $Status_Trx;
+     /** @var \string */
+    protected $Status_Trx;
 
-     /** @var string */
-    private $Servico_AVS;
+     /** @var \string */
+    protected $Servico_AVS;
 
-     /** @var string */
-    private $Programa;
+     /** @var \string */
+    protected $Programa;
 
-     /** @var string */
-    private $Usr;
+     /** @var \string */
+    protected $Usr;
 
-     /** @var string */
-    private $Pwd;
+     /** @var \string */
+    protected $Pwd;
 
     /**
-     * @return string
+     * @return \string
      */
     public function getFiliacao() {
         return $this->Filiacao;
     }
 
     /**
-     * @return string
+     * @return \string
      */
     public function getDistribuidor() {
         return $this->Distribuidor;
     }
 
     /**
-     * @return string
+     * @return \string
      */
     public function getData_Inicial() {
         return $this->Data_Inicial;
     }
 
     /**
-     * @return string
+     * @return \string
      */
     public function getData_Final() {
         return $this->Data_Final;
     }
 
     /**
-     * @return string
+     * @return \string
      */
     public function getTipo_Trx() {
         return $this->Tipo_Trx;
     }
 
     /**
-     * @return string
+     * @return \string
      */
     public function getStatus_Trx() {
         return $this->Status_Trx;
     }
 
     /**
-     * @return string
+     * @return \string
      */
     public function getServico_AVS() {
         return $this->Servico_AVS;
     }
 
     /**
-     * @return string
+     * @return \string
      */
     public function getPrograma() {
         return $this->Programa;
     }
 
     /**
-     * @return string
+     * @return \string
      */
     public function getUsr() {
         return $this->Usr;
     }
 
     /**
-     * @return string
+     * @return \string
      */
     public function getPwd() {
         return $this->Pwd;
     }
 
     /**
-     * @param string
+     * @param \string
      * @return CouncilReport
      */
-    public function setFiliacao(string $param = null) {
+    public function setFiliacao($param = null) {
         $this->Filiacao = $param;
         return $this;
     }
 
     /**
-     * @param string
+     * @param \string
      * @return CouncilReport
      */
-    public function setDistribuidor(string $param = null) {
+    public function setDistribuidor($param = null) {
         $this->Distribuidor = $param;
         return $this;
     }
 
     /**
-     * @param string
+     * @param \string
      * @return CouncilReport
      */
-    public function setData_Inicial(string $param = null) {
+    public function setData_Inicial($param = null) {
         $this->Data_Inicial = $param;
         return $this;
     }
 
     /**
-     * @param string
+     * @param \string
      * @return CouncilReport
      */
-    public function setData_Final(string $param = null) {
+    public function setData_Final($param = null) {
         $this->Data_Final = $param;
         return $this;
     }
 
     /**
-     * @param string
+     * @param \string
      * @return CouncilReport
      */
-    public function setTipo_Trx(string $param = null) {
+    public function setTipo_Trx($param = null) {
         $this->Tipo_Trx = $param;
         return $this;
     }
 
     /**
-     * @param string
+     * @param \string
      * @return CouncilReport
      */
-    public function setStatus_Trx(string $param = null) {
+    public function setStatus_Trx($param = null) {
         $this->Status_Trx = $param;
         return $this;
     }
 
     /**
-     * @param string
+     * @param \string
      * @return CouncilReport
      */
-    public function setServico_AVS(string $param = null) {
+    public function setServico_AVS($param = null) {
         $this->Servico_AVS = $param;
         return $this;
     }
 
     /**
-     * @param string
+     * @param \string
      * @return CouncilReport
      */
-    public function setPrograma(string $param = null) {
+    public function setPrograma($param = null) {
         $this->Programa = $param;
         return $this;
     }
 
     /**
-     * @param string
+     * @param \string
      * @return CouncilReport
      */
-    public function setUsr(string $param = null) {
+    public function setUsr($param = null) {
         $this->Usr = $param;
         return $this;
     }
 
     /**
-     * @param string
+     * @param \string
      * @return CouncilReport
      */
-    public function setPwd(string $param = null) {
+    public function setPwd($param = null) {
         $this->Pwd = $param;
         return $this;
     }

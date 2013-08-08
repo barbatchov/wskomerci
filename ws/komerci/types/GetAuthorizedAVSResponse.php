@@ -7,7 +7,7 @@ use \ws\komerci\KomerciServiceInterface;
 
 class GetAuthorizedAVSResponse extends KomerciEntityAbstract implements KomerciServiceInterface {
      /** @var \ws\komerci\types\GetAuthorizedAVSResult */
-    private $GetAuthorizedAVSResult;
+    protected $GetAuthorizedAVSResult;
 
     /**
      * @return \ws\komerci\types\GetAuthorizedAVSResult
@@ -18,7 +18,7 @@ class GetAuthorizedAVSResponse extends KomerciEntityAbstract implements KomerciS
 
     /**
      * @param \ws\komerci\types\GetAuthorizedAVSResult
-     * @return \ws\komerci\types\GetAuthorizedAVSResponse
+     * @return GetAuthorizedAVSResponse
      */
     public function setGetAuthorizedAVSResult(\ws\komerci\types\GetAuthorizedAVSResult $param = null) {
         $this->GetAuthorizedAVSResult = $param;

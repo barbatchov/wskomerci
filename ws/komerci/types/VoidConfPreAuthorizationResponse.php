@@ -7,7 +7,7 @@ use \ws\komerci\KomerciServiceInterface;
 
 class VoidConfPreAuthorizationResponse extends KomerciEntityAbstract implements KomerciServiceInterface {
      /** @var \ws\komerci\types\VoidConfPreAuthorizationResult */
-    private $VoidConfPreAuthorizationResult;
+    protected $VoidConfPreAuthorizationResult;
 
     /**
      * @return \ws\komerci\types\VoidConfPreAuthorizationResult
@@ -18,7 +18,7 @@ class VoidConfPreAuthorizationResponse extends KomerciEntityAbstract implements 
 
     /**
      * @param \ws\komerci\types\VoidConfPreAuthorizationResult
-     * @return \ws\komerci\types\VoidConfPreAuthorizationResponse
+     * @return VoidConfPreAuthorizationResponse
      */
     public function setVoidConfPreAuthorizationResult(\ws\komerci\types\VoidConfPreAuthorizationResult $param = null) {
         $this->VoidConfPreAuthorizationResult = $param;

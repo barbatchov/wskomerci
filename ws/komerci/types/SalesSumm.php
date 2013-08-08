@@ -6,59 +6,59 @@ use \ws\komerci\KomerciEntityAbstract;
 use \ws\komerci\KomerciServiceInterface;
 
 class SalesSumm extends KomerciEntityAbstract implements KomerciServiceInterface {
-     /** @var string */
-    private $Filiacao;
+     /** @var \string */
+    protected $Filiacao;
 
-     /** @var string */
-    private $Usr;
+     /** @var \string */
+    protected $Usr;
 
-     /** @var string */
-    private $Pwd;
+     /** @var \string */
+    protected $Pwd;
 
     /**
-     * @return string
+     * @return \string
      */
     public function getFiliacao() {
         return $this->Filiacao;
     }
 
     /**
-     * @return string
+     * @return \string
      */
     public function getUsr() {
         return $this->Usr;
     }
 
     /**
-     * @return string
+     * @return \string
      */
     public function getPwd() {
         return $this->Pwd;
     }
 
     /**
-     * @param string
+     * @param \string
      * @return SalesSumm
      */
-    public function setFiliacao(string $param = null) {
+    public function setFiliacao($param = null) {
         $this->Filiacao = $param;
         return $this;
     }
 
     /**
-     * @param string
+     * @param \string
      * @return SalesSumm
      */
-    public function setUsr(string $param = null) {
+    public function setUsr($param = null) {
         $this->Usr = $param;
         return $this;
     }
 
     /**
-     * @param string
+     * @param \string
      * @return SalesSumm
      */
-    public function setPwd(string $param = null) {
+    public function setPwd($param = null) {
         $this->Pwd = $param;
         return $this;
     }

@@ -7,7 +7,7 @@ use \ws\komerci\KomerciServiceInterface;
 
 class ConsFornDistribResponse extends KomerciEntityAbstract implements KomerciServiceInterface {
      /** @var \ws\komerci\types\ConsFornDistribResult */
-    private $ConsFornDistribResult;
+    protected $ConsFornDistribResult;
 
     /**
      * @return \ws\komerci\types\ConsFornDistribResult
@@ -18,7 +18,7 @@ class ConsFornDistribResponse extends KomerciEntityAbstract implements KomerciSe
 
     /**
      * @param \ws\komerci\types\ConsFornDistribResult
-     * @return \ws\komerci\types\ConsFornDistribResponse
+     * @return ConsFornDistribResponse
      */
     public function setConsFornDistribResult(\ws\komerci\types\ConsFornDistribResult $param = null) {
         $this->ConsFornDistribResult = $param;

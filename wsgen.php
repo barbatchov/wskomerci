@@ -22,11 +22,11 @@ foreach($types as $type) {
 	for ($i = 1; $i < sizeof($exploded) - 1; $i++){
 		preg_match('/ (.*?) (.*);/', $exploded[$i], $matches);
 		$paramType = $matches[1];
-		$paramName = $matches[2];
+		$paramName = ucfirst($matches[2]);
 		$namespace = "\\$namespaceTypes\\";
 		
 		if ($paramType == 'string') 
-			$namespace = '';
+			$namespace = '\\';
 
 		if ($paramType == '<anyXML>') {
 			$namespace = '';
@@ -35,7 +35,7 @@ foreach($types as $type) {
 		
 		$formatedTypes[$class]['attr'][] = implode(PHP_EOL, array(
 			($paramType ? "     /** @var $namespace$paramType */" : "     /** @var any */"),  
-			"    private \$$paramName;",
+			"    protected \$$paramName;",
 			''
 		));
 		
@@ -52,9 +52,9 @@ foreach($types as $type) {
 		$formatedTypes[$class]['set'][] = implode(PHP_EOL, array(
 			'    /**',
 			($paramType ? "     * @param $namespace$paramType" : '     * @param any'),
-			"     * @return $namespace$class",
+			"     * @return $class",
 			"     */",
-			"    public function set$paramName($namespace$paramType \$param = null) {",
+			"    public function set$paramName(" . ($paramType == 'string' || $paramType == 'any' ? '' : $namespace . $paramType . ' ') . "\$param = null) {",
 			"        \$this->$paramName = \$param;",
 			"        return \$this;",
 			"    }",
@@ -68,6 +68,23 @@ foreach($types as $type) {
 	
 	
 	file_put_contents('./ws/komerci/types/' . $class . '.php', '<?PHP' . PHP_EOL . implode(PHP_EOL, $formatedTypes[$class]) );
+	
+	// test class
+	$testClass = implode(PHP_EOL, array(
+		'<?php', 
+		'use \test\ws\komerci\BasicEntityTestCase;',
+		'use \ws\komerci\types\\' . $class . ';', '',
+		"class {$class}Test extends BasicEntityTestCase {", '',
+		'    /**',
+		'     * @return \ws\komerci\types\\' . $class,
+		'     */',
+		"    public function getEntity() {",
+		"        return new $class();", 
+		"    }", 
+		"}", 
+	));
+	
+	file_put_contents('./test/ws/komerci/types/' . $class . 'Test.php', $testClass);
 }
 
 $fcns = array('<?php', '', 'namespace ws\komerci;', '', '/**');

@@ -7,21 +7,21 @@ use \ws\komerci\KomerciServiceInterface;
 
 class GetAuthorized_ADResult extends KomerciEntityAbstract implements KomerciServiceInterface {
      /** @var any */
-    private $any;
+    protected $Any;
 
     /**
      * @return any
      */
-    public function getany() {
-        return $this->any;
+    public function getAny() {
+        return $this->Any;
     }
 
     /**
      * @param any
      * @return GetAuthorized_ADResult
      */
-    public function setany( $param = null) {
-        $this->any = $param;
+    public function setAny( $param = null) {
+        $this->Any = $param;
         return $this;
     }
 

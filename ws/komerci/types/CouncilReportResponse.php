@@ -7,7 +7,7 @@ use \ws\komerci\KomerciServiceInterface;
 
 class CouncilReportResponse extends KomerciEntityAbstract implements KomerciServiceInterface {
      /** @var \ws\komerci\types\CouncilReportResult */
-    private $CouncilReportResult;
+    protected $CouncilReportResult;
 
     /**
      * @return \ws\komerci\types\CouncilReportResult
@@ -18,7 +18,7 @@ class CouncilReportResponse extends KomerciEntityAbstract implements KomerciServ
 
     /**
      * @param \ws\komerci\types\CouncilReportResult
-     * @return \ws\komerci\types\CouncilReportResponse
+     * @return CouncilReportResponse
      */
     public function setCouncilReportResult(\ws\komerci\types\CouncilReportResult $param = null) {
         $this->CouncilReportResult = $param;

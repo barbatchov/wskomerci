@@ -7,7 +7,7 @@ use \ws\komerci\KomerciServiceInterface;
 
 class ReversalTxnResponse extends KomerciEntityAbstract implements KomerciServiceInterface {
      /** @var \ws\komerci\types\ReversalTxnResult */
-    private $ReversalTxnResult;
+    protected $ReversalTxnResult;
 
     /**
      * @return \ws\komerci\types\ReversalTxnResult
@@ -18,7 +18,7 @@ class ReversalTxnResponse extends KomerciEntityAbstract implements KomerciServic
 
     /**
      * @param \ws\komerci\types\ReversalTxnResult
-     * @return \ws\komerci\types\ReversalTxnResponse
+     * @return ReversalTxnResponse
      */
     public function setReversalTxnResult(\ws\komerci\types\ReversalTxnResult $param = null) {
         $this->ReversalTxnResult = $param;

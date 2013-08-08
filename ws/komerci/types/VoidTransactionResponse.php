@@ -7,7 +7,7 @@ use \ws\komerci\KomerciServiceInterface;
 
 class VoidTransactionResponse extends KomerciEntityAbstract implements KomerciServiceInterface {
      /** @var \ws\komerci\types\VoidTransactionResult */
-    private $VoidTransactionResult;
+    protected $VoidTransactionResult;
 
     /**
      * @return \ws\komerci\types\VoidTransactionResult
@@ -18,7 +18,7 @@ class VoidTransactionResponse extends KomerciEntityAbstract implements KomerciSe
 
     /**
      * @param \ws\komerci\types\VoidTransactionResult
-     * @return \ws\komerci\types\VoidTransactionResponse
+     * @return VoidTransactionResponse
      */
     public function setVoidTransactionResult(\ws\komerci\types\VoidTransactionResult $param = null) {
         $this->VoidTransactionResult = $param;
