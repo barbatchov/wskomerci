@@ -56,7 +56,7 @@ class GenericValidator extends ValidatorAbstract {
 		if (!empty($validableAttrs)) {
 			
 			foreach ($validableAttrs as $attr => $val) {
-				$pattern = $map->getProperty($attr);
+				$pattern = $map->getProperty(ucfirst($attr));
  				$attrName = $pattern->getName();
  				$attrType = $pattern->getType();
 				$attrSize = $pattern->getSize();

@@ -41,7 +41,7 @@ abstract class BasicEntityTestCase extends \PHPUnit_Framework_TestCase {
 		$class = get_class($this->entity);
 		$array = $this->entity->toArray(true);
 		$filled = $this->fillArray($array);
-		
+
 		$entity = new $class($filled);
 		$result = $entity->toArray();
 		

@@ -20,8 +20,7 @@ class PopulableAbstract {
 		$objectVars = get_object_vars($this);
 	
 		foreach ($objectVars as $attr => $value) {
-			$attr = ucfirst($attr);
-			(!isset($data[$attr])) ? null : $this->{'set' . $attr}($data[$attr]);
+			(!isset($data[$attr])) ? null : $this->{'set' . ucfirst($attr)}($data[$attr]);
 		}
 	}
 	
