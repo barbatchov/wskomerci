@@ -16,7 +16,9 @@ class GenericValidator extends ValidatorAbstract {
 	public function __construct(ValidableInterface $validable = null, TypeMapInterface $typemap = null, $throwable = false) {
 		parent::__construct($throwable);
 		
-		$this->setValidable($validable);
+		$this
+			->setValidable($validable)
+			->setTypeMap($typemap);
 		
 	}
 	
@@ -48,12 +50,30 @@ class GenericValidator extends ValidatorAbstract {
 	
 	protected function validateIt($input = '') {
 		$map = $this->getPattern();
-		$validableAttrs = get_object_vars($this->validable);
+		$validableAttrs = ($this->validableHasToArray()) ? $this->validable->toArray(true) : 
+			get_object_vars($this->validable);
 		
-		foreach ($validableAttrs as $attr => $val) {
-			$pattern = $map->getProperty($attr);
-			// TODO validacao
+		if (!empty($validableAttrs)) {
+			
+			foreach ($validableAttrs as $attr => $val) {
+				$pattern = $map->getProperty($attr);
+// 				$attrName = $pattern->getName();
+// 				$attrType = $pattern->getType();
+				$attrSize = $pattern->getSize();
+				
+				if (null != $attrSize && strlen($val.'') > $attrSize) {
+					$this->messages[] = "Size of $attr exceeds the expected size of $attrSize!";
+				}
+			}
+			
+			
+			
+		} else {
+			$this->messages[] = 'Could not get the array from ValidableInterface!';
 		}
+		
+		// validation return
+		return (sizeof($this->messages) == 0);
 	}
 	
 	/**
@@ -61,6 +81,15 @@ class GenericValidator extends ValidatorAbstract {
 	 */
 	protected function getPattern() {
 		return $this->typemap;
+	}
+	
+	/**
+	 * Verify if validable has 'toArray' method
+	 * 
+	 * @return boolean
+	 */
+	private function validableHasToArray() {
+		return (method_exists($this->validable, 'toArray'));
 	}
 }
 
