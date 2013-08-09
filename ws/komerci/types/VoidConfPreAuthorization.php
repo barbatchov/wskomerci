@@ -6,7 +6,7 @@ use \ws\komerci\KomerciEntityAbstract;
 use \ws\komerci\KomerciServiceInterface;
 use \ws\komerci\decorators\KomerciValidableInterface;
 
-class VoidConfPreAuthorization extends KomerciEntityAbstract implements KomerciServiceInterface, KomerciValidableInterface {
+class VoidConfPreAuthorization extends KomerciEntityAbstract {
      /** @var \string */
     protected $Filiacao;
 

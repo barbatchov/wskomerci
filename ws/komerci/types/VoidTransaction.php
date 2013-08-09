@@ -6,7 +6,7 @@ use \ws\komerci\KomerciEntityAbstract;
 use \ws\komerci\KomerciServiceInterface;
 use \ws\komerci\decorators\KomerciValidableInterface;
 
-class VoidTransaction extends KomerciEntityAbstract implements KomerciServiceInterface, KomerciValidableInterface {
+class VoidTransaction extends KomerciEntityAbstract {
      /** @var \string */
     protected $Total;
 

@@ -6,7 +6,7 @@ use \ws\komerci\KomerciEntityAbstract;
 use \ws\komerci\KomerciServiceInterface;
 use \ws\komerci\decorators\KomerciValidableInterface;
 
-class ConfirmTxnResult extends KomerciEntityAbstract implements KomerciServiceInterface, KomerciValidableInterface {
+class ConfirmTxnResult extends KomerciEntityAbstract {
      /** @var any */
     protected $Any;
 

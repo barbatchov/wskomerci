@@ -17,7 +17,7 @@ foreach($types as $type) {
 			"use \\$namespaceGlob\KomerciEntityAbstract;" .  PHP_EOL . 
 			"use \\$namespaceGlob\KomerciServiceInterface;" .  PHP_EOL . 
 			"use \\$namespaceGlob\decorators\KomerciValidableInterface;" .  PHP_EOL .  PHP_EOL .
-			'class ' . $class . ' extends KomerciEntityAbstract implements KomerciServiceInterface, KomerciValidableInterface {', 
+			'class ' . $class . ' extends KomerciEntityAbstract {', 
 			'attr' => array(), 'get' => array(), 'set' => array(), 'endClass' => '}');
 	
 	for ($i = 1; $i < sizeof($exploded) - 1; $i++){

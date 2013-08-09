@@ -6,7 +6,7 @@ use \ws\komerci\KomerciEntityAbstract;
 use \ws\komerci\KomerciServiceInterface;
 use \ws\komerci\decorators\KomerciValidableInterface;
 
-class VoidDebtTransactionResponse extends KomerciEntityAbstract implements KomerciServiceInterface, KomerciValidableInterface {
+class VoidDebtTransactionResponse extends KomerciEntityAbstract {
      /** @var \ws\komerci\types\VoidDebtTransactionResult */
     protected $VoidDebtTransactionResult;
 

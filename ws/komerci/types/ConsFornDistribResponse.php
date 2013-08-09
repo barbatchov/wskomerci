@@ -6,7 +6,7 @@ use \ws\komerci\KomerciEntityAbstract;
 use \ws\komerci\KomerciServiceInterface;
 use \ws\komerci\decorators\KomerciValidableInterface;
 
-class ConsFornDistribResponse extends KomerciEntityAbstract implements KomerciServiceInterface, KomerciValidableInterface {
+class ConsFornDistribResponse extends KomerciEntityAbstract {
      /** @var \ws\komerci\types\ConsFornDistribResult */
     protected $ConsFornDistribResult;
 

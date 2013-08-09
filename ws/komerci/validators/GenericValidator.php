@@ -57,12 +57,14 @@ class GenericValidator extends ValidatorAbstract {
 			
 			foreach ($validableAttrs as $attr => $val) {
 				$pattern = $map->getProperty($attr);
-// 				$attrName = $pattern->getName();
-// 				$attrType = $pattern->getType();
+ 				$attrName = $pattern->getName();
+ 				$attrType = $pattern->getType();
 				$attrSize = $pattern->getSize();
 				
-				if (null != $attrSize && strlen($val.'') > $attrSize) {
-					$this->messages[] = "Size of $attr exceeds the expected size of $attrSize!";
+				if ($attrType != 'Any' && $attrType != null) {
+					if (null != $attrSize && (gettype($val) == $attrType) && strlen($val.'') > $attrSize) {
+						$this->messages[] = "Size of $attrName exceeds the expected size of $attrSize!";
+					}
 				}
 			}
 			

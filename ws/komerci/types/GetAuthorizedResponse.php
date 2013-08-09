@@ -6,7 +6,7 @@ use \ws\komerci\KomerciEntityAbstract;
 use \ws\komerci\KomerciServiceInterface;
 use \ws\komerci\decorators\KomerciValidableInterface;
 
-class GetAuthorizedResponse extends KomerciEntityAbstract implements KomerciServiceInterface, KomerciValidableInterface {
+class GetAuthorizedResponse extends KomerciEntityAbstract {
      /** @var \ws\komerci\types\GetAuthorizedResult */
     protected $GetAuthorizedResult;
 

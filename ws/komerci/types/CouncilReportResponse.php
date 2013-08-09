@@ -6,7 +6,7 @@ use \ws\komerci\KomerciEntityAbstract;
 use \ws\komerci\KomerciServiceInterface;
 use \ws\komerci\decorators\KomerciValidableInterface;
 
-class CouncilReportResponse extends KomerciEntityAbstract implements KomerciServiceInterface, KomerciValidableInterface {
+class CouncilReportResponse extends KomerciEntityAbstract {
      /** @var \ws\komerci\types\CouncilReportResult */
     protected $CouncilReportResult;
 

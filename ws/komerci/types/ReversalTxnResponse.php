@@ -6,7 +6,7 @@ use \ws\komerci\KomerciEntityAbstract;
 use \ws\komerci\KomerciServiceInterface;
 use \ws\komerci\decorators\KomerciValidableInterface;
 
-class ReversalTxnResponse extends KomerciEntityAbstract implements KomerciServiceInterface, KomerciValidableInterface {
+class ReversalTxnResponse extends KomerciEntityAbstract {
      /** @var \ws\komerci\types\ReversalTxnResult */
     protected $ReversalTxnResult;
 

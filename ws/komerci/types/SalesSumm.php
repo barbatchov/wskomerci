@@ -6,7 +6,7 @@ use \ws\komerci\KomerciEntityAbstract;
 use \ws\komerci\KomerciServiceInterface;
 use \ws\komerci\decorators\KomerciValidableInterface;
 
-class SalesSumm extends KomerciEntityAbstract implements KomerciServiceInterface, KomerciValidableInterface {
+class SalesSumm extends KomerciEntityAbstract {
      /** @var \string */
     protected $Filiacao;
 

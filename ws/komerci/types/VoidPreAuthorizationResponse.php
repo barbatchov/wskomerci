@@ -6,7 +6,7 @@ use \ws\komerci\KomerciEntityAbstract;
 use \ws\komerci\KomerciServiceInterface;
 use \ws\komerci\decorators\KomerciValidableInterface;
 
-class VoidPreAuthorizationResponse extends KomerciEntityAbstract implements KomerciServiceInterface, KomerciValidableInterface {
+class VoidPreAuthorizationResponse extends KomerciEntityAbstract {
      /** @var \ws\komerci\types\VoidPreAuthorizationResult */
     protected $VoidPreAuthorizationResult;
 

@@ -1,6 +1,8 @@
 <?php
 namespace test\ws\komerci\validators;
 
+use ws\komerci\validators\ValidatorAbstract;
+
 use ws\komerci\PopulableAbstract;
 use ws\komerci\types\ConfirmTxn_AD;
 use ws\komerci\typemaps\ConfirmTxn_ADMap;
@@ -37,6 +39,12 @@ class GenericValidatorTest extends \PHPUnit_Framework_TestCase {
 		$result = $validator->isValid();
 	}
 	
+	public function testCanNotFindCustomValidatorException() {
+		$this->markTestSkipped('Autoloading is breaking on Exception class verifying...');
+		$validator = new Stub_Validator201308082152();
+		$validator->isValid();
+	}
+	
 	public function testShouldValidate() {
 		$validable = new ConfirmTxn_AD();
 		$typeMap = new ConfirmTxn_ADMap();
@@ -56,7 +64,7 @@ class GenericValidatorTest extends \PHPUnit_Framework_TestCase {
 		
 		$this->assertFalse($result);
 	}
-	
+
 	public function testShouldNotValidateSize() {
 		$validable = new Stub_Validable201308082126();
 		$typeMap = new Stub_TypeMap201308082124();
@@ -81,5 +89,19 @@ class Stub_TypeMap201308082124 implements TypeMapInterface {
 	public function getProperty($name = '') {
 			return new GenericAttributes(array('Name' => 'attr', 'Type' => 'string', 'Size' => 3)); 
 	}
+}
+
+class Stub_Validator201308082152 extends ValidatorAbstract {
 	
+	public function __construct() {
+		parent::__construct(true);
+	}
+	
+	protected function validateIt($input = '') {
+		return $this->getPattern();
+	}
+	
+	protected function getPattern() {
+		return false;
+	}
 }
