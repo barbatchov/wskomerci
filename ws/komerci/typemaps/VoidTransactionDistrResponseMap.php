@@ -3,6 +3,13 @@ namespace ws\komerci\typemaps;
 
 use \ws\komerci\typemaps\GenericAttributes;
 
+
+/**
+ *
+ * @author Elias Alves Chacon <elias.alves.chacon@gmail.com>
+ * @since 2013-08-07 02:29:30
+ *
+ */
 class VoidTransactionDistrResponseMap implements TypemapInterface {
     const VOID_TRANSACTION_DISTR_RESULT = 'VoidTransactionDistrResult';
 

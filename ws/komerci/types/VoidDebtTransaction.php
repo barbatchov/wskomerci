@@ -6,27 +6,34 @@ use \ws\komerci\KomerciEntityAbstract;
 use \ws\komerci\KomerciServiceInterface;
 use \ws\komerci\decorators\KomerciValidableInterface;
 
+
+/**
+ *
+ * @author Elias Alves Chacon <elias.alves.chacon@gmail.com>
+ * @since 2013-08-07 02:29:30
+ *
+ */
 class VoidDebtTransaction extends KomerciEntityAbstract {
      /** @var \string */
-    protected $Total;
+    public $Total;
 
      /** @var \string */
-    protected $Filiacao;
+    public $Filiacao;
 
      /** @var \string */
-    protected $NumCV;
+    public $NumCV;
 
      /** @var \string */
-    protected $NumAutor;
+    public $NumAutor;
 
      /** @var \string */
-    protected $Concentrador;
+    public $Concentrador;
 
      /** @var \string */
-    protected $Usr;
+    public $Usr;
 
      /** @var \string */
-    protected $Pwd;
+    public $Pwd;
 
     /**
      * @return \string

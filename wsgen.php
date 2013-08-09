@@ -1,10 +1,28 @@
 <?php
+include_once 'index.php';
+
+// $client = new \ws\komerci\KomerciFacade('https://ecommerce.redecard.com.br/pos_virtual/wskomerci/cap.asmx?WSDL');
 $client = new \SoapClient('https://ecommerce.redecard.com.br/pos_virtual/wskomerci/cap.asmx?WSDL');
 $functions = $client->__getFunctions();
 $types = $client->__getTypes();
 
+// print_r($client->VoidTransaction( new \ws\komerci\types\VoidTransaction()));
+
+// die;
+
 $namespaceGlob = 'ws\komerci';
 $namespaceTypes = $namespaceGlob . '\types';
+
+$author = implode(PHP_EOL, array(
+	'',
+	'/**',
+	' *',
+	' * @author Elias Alves Chacon <elias.alves.chacon@gmail.com>',
+	' * @since 2013-08-07 02:29:30',
+	' *',
+	' */'
+		
+));
 
 $formatedTypes = array();
 foreach($types as $type) {
@@ -17,13 +35,15 @@ foreach($types as $type) {
 			"use \\$namespaceGlob\KomerciEntityAbstract;" .  PHP_EOL . 
 			"use \\$namespaceGlob\KomerciServiceInterface;" .  PHP_EOL . 
 			"use \\$namespaceGlob\decorators\KomerciValidableInterface;" .  PHP_EOL .  PHP_EOL .
+			$author .   PHP_EOL .
 			'class ' . $class . ' extends KomerciEntityAbstract {', 
 			'attr' => array(), 'get' => array(), 'set' => array(), 'endClass' => '}');
 	
 	for ($i = 1; $i < sizeof($exploded) - 1; $i++){
 		preg_match('/ (.*?) (.*);/', $exploded[$i], $matches);
 		$paramType = $matches[1];
-		$paramName = ucfirst($matches[2]);
+		$paramName = $matches[2];
+		$methodName = ucfirst($matches[2]);
 		$namespace = "\\$namespaceTypes\\";
 		
 		if ($paramType == 'string') 
@@ -36,7 +56,7 @@ foreach($types as $type) {
 		
 		$formatedTypes[$class]['attr'][] = implode(PHP_EOL, array(
 			($paramType ? "     /** @var $namespace$paramType */" : "     /** @var any */"),  
-			"    protected \$$paramName;",
+			"    public \$$paramName;",
 			''
 		));
 		
@@ -44,7 +64,7 @@ foreach($types as $type) {
 			'    /**',
 			($paramType ? "     * @return $namespace$paramType" : "     * @return any"),
 			"     */",
-			"    public function get$paramName() {",
+			"    public function get$methodName() {",
 			"        return \$this->$paramName;",
 			"    }",
 			'',
@@ -55,7 +75,7 @@ foreach($types as $type) {
 			($paramType ? "     * @param $namespace$paramType" : '     * @param any'),
 			"     * @return $class",
 			"     */",
-			"    public function set$paramName(" . ($paramType == 'string' || $paramType == 'any' ? '' : $namespace . $paramType . ' ') . "\$param = null) {",
+			"    public function set$methodName(" . ($paramType == 'string' || $paramType == 'any' ? '' : $namespace . $paramType . ' ') . "\$param = null) {",
 			"        \$this->$paramName = \$param;",
 			"        return \$this;",
 			"    }",
@@ -75,6 +95,7 @@ foreach($types as $type) {
 		'<?php', 
 		'use \test\ws\komerci\BasicEntityTestCase;',
 		'use \ws\komerci\types\\' . $class . ';', '',
+		$author,
 		"class {$class}Test extends BasicEntityTestCase {", '',
 		'    /**',
 		'     * @return \ws\komerci\types\\' . $class,
@@ -94,6 +115,7 @@ foreach($types as $type) {
 		'uses' => array(
 				//'use \ws\komerci\typemaps\TypemapInterface;', 
 				'use \ws\komerci\typemaps\GenericAttributes;'), '',
+		$author,
 		"class {$class}Map implements TypemapInterface {",
 		'consts' => array(), '',
 		'properties' => array(
@@ -138,7 +160,11 @@ foreach($types as $type) {
 	file_put_contents('./ws/komerci/typemaps/' . $class . 'Map.php', implode(PHP_EOL, $typemaps[$class]));
 }
 
-$fcns = array('<?php', '', 'namespace ws\komerci;', '', '/**');
+$fcns = array('<?php', '', 
+		'namespace ws\komerci;', '',
+		'use ws\komerci\KomerciSoapClientAbstract;', '', 
+		$author, '',
+		'/**');
 foreach($functions as $fn) {
 	preg_match('/(^.*)?\s(.*)?\((.*?)\s/', $fn, $matches);
 	$returnType = $matches[1];
@@ -149,7 +175,7 @@ foreach($functions as $fn) {
 }
 $fcns[] = ' */';
 
-$facade = implode(PHP_EOL, $fcns) . PHP_EOL . "class KomerciFacade extends \SoapClient {}";
+$facade = implode(PHP_EOL, $fcns) . PHP_EOL . "class KomerciFacade extends KomerciSoapClientAbstract {}";
 file_put_contents('./ws/komerci/KomerciFacade.php', $facade);
 
 

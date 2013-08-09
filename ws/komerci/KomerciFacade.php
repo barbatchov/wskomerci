@@ -2,6 +2,16 @@
 
 namespace ws\komerci;
 
+use ws\komerci\KomerciSoapClientAbstract;
+
+
+/**
+ *
+ * @author Elias Alves Chacon <elias.alves.chacon@gmail.com>
+ * @since 2013-08-07 02:29:30
+ *
+ */
+
 /**
  * @method \ws\komerci\types\ConfPreAuthorizationResponse ConfPreAuthorization(\ws\komerci\types\ConfPreAuthorization $param)
  * @method \ws\komerci\types\GetAuthorized_ADResponse GetAuthorized_AD(\ws\komerci\types\GetAuthorized_AD $param)
@@ -34,4 +44,4 @@ namespace ws\komerci;
  * @method \ws\komerci\types\SalesSummResponse SalesSumm(\ws\komerci\types\SalesSumm $param)
  * @method \ws\komerci\types\VoidPreAuthorizationResponse VoidPreAuthorization(\ws\komerci\types\VoidPreAuthorization $param)
  */
-class KomerciFacade extends \SoapClient {}
+class KomerciFacade extends KomerciSoapClientAbstract {}

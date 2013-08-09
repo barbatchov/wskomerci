@@ -3,6 +3,13 @@ namespace ws\komerci\typemaps;
 
 use \ws\komerci\typemaps\GenericAttributes;
 
+
+/**
+ *
+ * @author Elias Alves Chacon <elias.alves.chacon@gmail.com>
+ * @since 2013-08-07 02:29:30
+ *
+ */
 class GetAuthorizedAVSResponseMap implements TypemapInterface {
     const GET_AUTHORIZED_A_V_S_RESULT = 'GetAuthorizedAVSResult';
 

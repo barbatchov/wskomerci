@@ -5,6 +5,11 @@ use ws\komerci\validators\ValidableInterface;
 use ws\komerci\validators\GenericValidator;
 use ws\komerci\typemaps\TypeMapInterface;
 
+/**
+ * 
+ * @author Elias Alves Chacon
+ * 
+ */
 abstract class KomerciEntityAbstract extends PopulableAbstract implements KomerciServiceInterface, ValidableInterface {
 	
 	public function __construct($data = array()) {

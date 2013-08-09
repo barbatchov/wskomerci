@@ -6,69 +6,76 @@ use \ws\komerci\KomerciEntityAbstract;
 use \ws\komerci\KomerciServiceInterface;
 use \ws\komerci\decorators\KomerciValidableInterface;
 
+
+/**
+ *
+ * @author Elias Alves Chacon <elias.alves.chacon@gmail.com>
+ * @since 2013-08-07 02:29:30
+ *
+ */
 class ConfirmTxn_AD extends KomerciEntityAbstract {
      /** @var \string */
-    protected $Data;
+    public $Data;
 
      /** @var \string */
-    protected $NumSqn;
+    public $NumSqn;
 
      /** @var \string */
-    protected $NumCV;
+    public $NumCV;
 
      /** @var \string */
-    protected $NumAutor;
+    public $NumAutor;
 
      /** @var \string */
-    protected $Parcelas;
+    public $Parcelas;
 
      /** @var \string */
-    protected $TransOrig;
+    public $TransOrig;
 
      /** @var \string */
-    protected $Total;
+    public $Total;
 
      /** @var \string */
-    protected $Filiacao;
+    public $Filiacao;
 
      /** @var \string */
-    protected $Distribuidor;
+    public $Distribuidor;
 
      /** @var \string */
-    protected $NumPedido;
+    public $NumPedido;
 
      /** @var \string */
-    protected $Pax1;
+    public $Pax1;
 
      /** @var \string */
-    protected $Pax2;
+    public $Pax2;
 
      /** @var \string */
-    protected $Pax3;
+    public $Pax3;
 
      /** @var \string */
-    protected $Pax4;
+    public $Pax4;
 
      /** @var \string */
-    protected $Numdoc1;
+    public $Numdoc1;
 
      /** @var \string */
-    protected $Numdoc2;
+    public $Numdoc2;
 
      /** @var \string */
-    protected $Numdoc3;
+    public $Numdoc3;
 
      /** @var \string */
-    protected $Numdoc4;
+    public $Numdoc4;
 
      /** @var \string */
-    protected $Cod_Banco;
+    public $Cod_Banco;
 
      /** @var \string */
-    protected $Origem_Bin;
+    public $Origem_Bin;
 
      /** @var \string */
-    protected $AddData;
+    public $AddData;
 
     /**
      * @return \string

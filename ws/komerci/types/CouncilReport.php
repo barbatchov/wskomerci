@@ -6,36 +6,43 @@ use \ws\komerci\KomerciEntityAbstract;
 use \ws\komerci\KomerciServiceInterface;
 use \ws\komerci\decorators\KomerciValidableInterface;
 
+
+/**
+ *
+ * @author Elias Alves Chacon <elias.alves.chacon@gmail.com>
+ * @since 2013-08-07 02:29:30
+ *
+ */
 class CouncilReport extends KomerciEntityAbstract {
      /** @var \string */
-    protected $Filiacao;
+    public $Filiacao;
 
      /** @var \string */
-    protected $Distribuidor;
+    public $Distribuidor;
 
      /** @var \string */
-    protected $Data_Inicial;
+    public $Data_Inicial;
 
      /** @var \string */
-    protected $Data_Final;
+    public $Data_Final;
 
      /** @var \string */
-    protected $Tipo_Trx;
+    public $Tipo_Trx;
 
      /** @var \string */
-    protected $Status_Trx;
+    public $Status_Trx;
 
      /** @var \string */
-    protected $Servico_AVS;
+    public $Servico_AVS;
 
      /** @var \string */
-    protected $Programa;
+    public $Programa;
 
      /** @var \string */
-    protected $Usr;
+    public $Usr;
 
      /** @var \string */
-    protected $Pwd;
+    public $Pwd;
 
     /**
      * @return \string

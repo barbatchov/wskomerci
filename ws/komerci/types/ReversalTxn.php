@@ -6,36 +6,43 @@ use \ws\komerci\KomerciEntityAbstract;
 use \ws\komerci\KomerciServiceInterface;
 use \ws\komerci\decorators\KomerciValidableInterface;
 
+
+/**
+ *
+ * @author Elias Alves Chacon <elias.alves.chacon@gmail.com>
+ * @since 2013-08-07 02:29:30
+ *
+ */
 class ReversalTxn extends KomerciEntityAbstract {
      /** @var \string */
-    protected $Filiacao;
+    public $Filiacao;
 
      /** @var \string */
-    protected $Distribuidor;
+    public $Distribuidor;
 
      /** @var \string */
-    protected $Total;
+    public $Total;
 
      /** @var \string */
-    protected $Data;
+    public $Data;
 
      /** @var \string */
-    protected $NumAutor;
+    public $NumAutor;
 
      /** @var \string */
-    protected $NumSqn;
+    public $NumSqn;
 
      /** @var \string */
-    protected $NumPedido;
+    public $NumPedido;
 
      /** @var \string */
-    protected $Parcelas;
+    public $Parcelas;
 
      /** @var \string */
-    protected $Usr;
+    public $Usr;
 
      /** @var \string */
-    protected $Pwd;
+    public $Pwd;
 
     /**
      * @return \string

@@ -6,81 +6,88 @@ use \ws\komerci\KomerciEntityAbstract;
 use \ws\komerci\KomerciServiceInterface;
 use \ws\komerci\decorators\KomerciValidableInterface;
 
+
+/**
+ *
+ * @author Elias Alves Chacon <elias.alves.chacon@gmail.com>
+ * @since 2013-08-07 02:29:30
+ *
+ */
 class GetAuthorized extends KomerciEntityAbstract {
      /** @var \string */
-    protected $Total;
+    public $Total;
 
      /** @var \string */
-    protected $Transacao;
+    public $Transacao;
 
      /** @var \string */
-    protected $Parcelas;
+    public $Parcelas;
 
      /** @var \string */
-    protected $Filiacao;
+    public $Filiacao;
 
      /** @var \string */
-    protected $NumPedido;
+    public $NumPedido;
 
      /** @var \string */
-    protected $Nrcartao;
+    public $Nrcartao;
 
      /** @var \string */
-    protected $CVC2;
+    public $CVC2;
 
      /** @var \string */
-    protected $Mes;
+    public $Mes;
 
      /** @var \string */
-    protected $Ano;
+    public $Ano;
 
      /** @var \string */
-    protected $Portador;
+    public $Portador;
 
      /** @var \string */
-    protected $IATA;
+    public $IATA;
 
      /** @var \string */
-    protected $Distribuidor;
+    public $Distribuidor;
 
      /** @var \string */
-    protected $Concentrador;
+    public $Concentrador;
 
      /** @var \string */
-    protected $TaxaEmbarque;
+    public $TaxaEmbarque;
 
      /** @var \string */
-    protected $Entrada;
+    public $Entrada;
 
      /** @var \string */
-    protected $Pax1;
+    public $Pax1;
 
      /** @var \string */
-    protected $Pax2;
+    public $Pax2;
 
      /** @var \string */
-    protected $Pax3;
+    public $Pax3;
 
      /** @var \string */
-    protected $Pax4;
+    public $Pax4;
 
      /** @var \string */
-    protected $Numdoc1;
+    public $Numdoc1;
 
      /** @var \string */
-    protected $Numdoc2;
+    public $Numdoc2;
 
      /** @var \string */
-    protected $Numdoc3;
+    public $Numdoc3;
 
      /** @var \string */
-    protected $Numdoc4;
+    public $Numdoc4;
 
      /** @var \string */
-    protected $ConfTxn;
+    public $ConfTxn;
 
      /** @var \string */
-    protected $Add_Data;
+    public $Add_Data;
 
     /**
      * @return \string
