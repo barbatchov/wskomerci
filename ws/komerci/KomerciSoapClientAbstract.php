@@ -31,9 +31,4 @@ abstract class KomerciSoapClientAbstract extends \SoapClient {
 		return parent::__soapCall($function_name, $arguments, $options, $input_headers, $output_headers);
 	}
 	
-	public function __getLastResponse() {
-		
-		print_r(parent::__getLastResponse());
-	}
-	
 }

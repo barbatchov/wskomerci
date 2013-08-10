@@ -43,5 +43,25 @@ use ws\komerci\KomerciSoapClientAbstract;
  * @method \ws\komerci\types\CouncilReportResponse CouncilReport(\ws\komerci\types\CouncilReport $param)
  * @method \ws\komerci\types\SalesSummResponse SalesSumm(\ws\komerci\types\SalesSumm $param)
  * @method \ws\komerci\types\VoidPreAuthorizationResponse VoidPreAuthorization(\ws\komerci\types\VoidPreAuthorization $param)
+ * 
+ * Test operations
+ * @method \ws\komerci\types\SalesSummTstResponse SalesSummTst(\ws\komerci\types\SalesSummTst $param)
+ * @method \ws\komerci\types\VoidPreAuthorizationTstResponse VoidPreAuthorizationTst(\ws\komerci\types\VoidPreAuthorizationTst $param)
+ * @method \ws\komerci\types\VoidTransactionTstResponse VoidTransactionTst(\ws\komerci\types\VoidTransactionTst $param)
+ * @method \ws\komerci\types\VoidConfPreAuthorizationTstResponse VoidConfPreAuthorizationTst(\ws\komerci\types\VoidConfPreAuthorizationTst $param)
+ * @method \ws\komerci\types\GetAuthorizedTstResponse GetAuthorizedTst(\ws\komerci\types\GetAuthorizedTst $param)
+ * @method \ws\komerci\types\GetAuthorizedAVSTstResponse GetAuthorizedAVSTst(\ws\komerci\types\GetAuthorizedAVSTst $param)
+ * @method \ws\komerci\types\CouncilReportTstResponse CouncilReportTst(\ws\komerci\types\CouncilReportTst $param)
+ * @method \ws\komerci\types\ConfirmTxnTstResponse ConfirmTxnTst(\ws\komerci\types\ConfirmTxnTst $param)
+ * @method \ws\komerci\types\ConfPreAuthorizationTstResponse ConfPreAuthorizationTst(\ws\komerci\types\ConfPreAuthorizationTst $param)
+ * @method \ws\komerci\types\SalesSummTstResponse SalesSummTst(\ws\komerci\types\SalesSummTst $param)
+ * @method \ws\komerci\types\VoidPreAuthorizationTstResponse VoidPreAuthorizationTst(\ws\komerci\types\VoidPreAuthorizationTst $param)
+ * @method \ws\komerci\types\VoidTransactionTstResponse VoidTransactionTst(\ws\komerci\types\VoidTransactionTst $param)
+ * @method \ws\komerci\types\VoidConfPreAuthorizationTstResponse VoidConfPreAuthorizationTst(\ws\komerci\types\VoidConfPreAuthorizationTst $param)
+ * @method \ws\komerci\types\GetAuthorizedTstResponse GetAuthorizedTst(\ws\komerci\types\GetAuthorizedTst $param)
+ * @method \ws\komerci\types\GetAuthorizedAVSTstResponse GetAuthorizedAVSTst(\ws\komerci\types\GetAuthorizedAVSTst $param)
+ * @method \ws\komerci\types\CouncilReportTstResponse CouncilReportTst(\ws\komerci\types\CouncilReportTst $param)
+ * @method \ws\komerci\types\ConfirmTxnTstResponse ConfirmTxnTst(\ws\komerci\types\ConfirmTxnTst $param)
+ * @method \ws\komerci\types\ConfPreAuthorizationTstResponse ConfPreAuthorizationTst(\ws\komerci\types\ConfPreAuthorizationTst $param)
  */
 class KomerciFacade extends KomerciSoapClientAbstract {}

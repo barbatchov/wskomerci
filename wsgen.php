@@ -2,7 +2,9 @@
 include_once 'index.php';
 
 // $client = new \ws\komerci\KomerciFacade('https://ecommerce.redecard.com.br/pos_virtual/wskomerci/cap.asmx?WSDL');
-$client = new \SoapClient('https://ecommerce.redecard.com.br/pos_virtual/wskomerci/cap.asmx?WSDL');
+//$client = new \SoapClient('https://ecommerce.redecard.com.br/pos_virtual/wskomerci/cap.asmx?WSDL');
+$client = new \SoapClient('https://ecommerce.redecard.com.br/pos_virtual/wskomerci/cap_teste.asmx?WSDL');
+
 $functions = $client->__getFunctions();
 $types = $client->__getTypes();
 
@@ -160,23 +162,23 @@ foreach($types as $type) {
 	file_put_contents('./ws/komerci/typemaps/' . $class . 'Map.php', implode(PHP_EOL, $typemaps[$class]));
 }
 
-$fcns = array('<?php', '', 
-		'namespace ws\komerci;', '',
-		'use ws\komerci\KomerciSoapClientAbstract;', '', 
-		$author, '',
-		'/**');
-foreach($functions as $fn) {
-	preg_match('/(^.*)?\s(.*)?\((.*?)\s/', $fn, $matches);
-	$returnType = $matches[1];
-	$method = $matches[2];
-	$paramType = $matches[3];
+// $fcns = array('<?php', '', 
+// 		'namespace ws\komerci;', '',
+// 		'use ws\komerci\KomerciSoapClientAbstract;', '', 
+// 		$author, '',
+// 		'/**');
+// foreach($functions as $fn) {
+// 	preg_match('/(^.*)?\s(.*)?\((.*?)\s/', $fn, $matches);
+// 	$returnType = $matches[1];
+// 	$method = $matches[2];
+// 	$paramType = $matches[3];
 	
-	$fcns[] = " * @method \\$namespaceTypes\\$returnType $method(\\$namespaceTypes\\$paramType \$param)";
-}
-$fcns[] = ' */';
+// 	$fcns[] = " * @method \\$namespaceTypes\\$returnType $method(\\$namespaceTypes\\$paramType \$param)";
+// }
+// $fcns[] = ' */';
 
-$facade = implode(PHP_EOL, $fcns) . PHP_EOL . "class KomerciFacade extends KomerciSoapClientAbstract {}";
-file_put_contents('./ws/komerci/KomerciFacade.php', $facade);
+// $facade = implode(PHP_EOL, $fcns) . PHP_EOL . "class KomerciFacade extends KomerciSoapClientAbstract {}";
+// file_put_contents('./ws/komerci/KomerciFacade.php', $facade);
 
 
 /**
