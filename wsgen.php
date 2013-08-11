@@ -8,9 +8,9 @@ $client = new \SoapClient('https://ecommerce.redecard.com.br/pos_virtual/wskomer
 $functions = $client->__getFunctions();
 $types = $client->__getTypes();
 
-// print_r($client->VoidTransaction( new \ws\komerci\types\VoidTransaction()));
+//print_r($client->VoidTransaction( new \ws\komerci\types\VoidTransaction()));
 
-// die;
+ die;
 
 $namespaceGlob = 'ws\komerci';
 $namespaceTypes = $namespaceGlob . '\types';

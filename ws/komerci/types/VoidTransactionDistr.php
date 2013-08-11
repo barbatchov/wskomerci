@@ -3,9 +3,6 @@
 namespace ws\komerci\types;
 
 use \ws\komerci\KomerciEntityAbstract;
-use \ws\komerci\KomerciServiceInterface;
-use \ws\komerci\decorators\KomerciValidableInterface;
-
 
 /**
  *
@@ -14,31 +11,32 @@ use \ws\komerci\decorators\KomerciValidableInterface;
  *
  */
 class VoidTransactionDistr extends KomerciEntityAbstract {
-     /** @var \string */
+
+    /** @var \string */
     public $Total;
 
-     /** @var \string */
+    /** @var \string */
     public $Filiacao;
 
-     /** @var \string */
+    /** @var \string */
     public $Data;
 
-     /** @var \string */
+    /** @var \string */
     public $NumCV;
 
-     /** @var \string */
+    /** @var \string */
     public $NumAutor;
 
-     /** @var \string */
+    /** @var \string */
     public $Concentrador;
 
-     /** @var \string */
+    /** @var \string */
     public $Distribuidor;
 
-     /** @var \string */
+    /** @var \string */
     public $Usr;
 
-     /** @var \string */
+    /** @var \string */
     public $Pwd;
 
     /**
