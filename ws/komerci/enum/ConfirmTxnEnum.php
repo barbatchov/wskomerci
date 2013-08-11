@@ -3,6 +3,12 @@ namespace ws\komerci\enum;
 
 use ws\komerci\enum\EnumAbstract;
 
+/**
+ *
+ * @author Elias Alves Chacon <elias.alves.chacon@gmail.com>
+ * @since 2013-08-10
+ *
+ */
 class ConfirmTxnEnum extends EnumAbstract {
 	const CONFIRMACAO_COM_SUCESSO = 0;
 	const JA_CONFIRMADA = 1;

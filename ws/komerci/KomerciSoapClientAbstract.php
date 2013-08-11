@@ -6,9 +6,10 @@ use \ws\komerci\KomerciEntityAbstract;
 
 /**
  *
- * @author Elias Alves Chacon
+ * @author Elias Alves Chacon <elias.alves.chacon@gmail.com>
+ * @since 2013-08-07
+ *
  */
-
 abstract class KomerciSoapClientAbstract extends SoapClient {
 	
 	/**

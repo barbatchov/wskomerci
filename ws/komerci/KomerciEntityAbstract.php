@@ -6,9 +6,10 @@ use ws\komerci\validators\ValidableInterface;
 use ws\komerci\validators\GenericValidator;
 
 /**
- * 
- * @author Elias Alves Chacon
- * 
+ *
+ * @author Elias Alves Chacon <elias.alves.chacon@gmail.com>
+ * @since 2013-08-07
+ *
  */
 abstract class KomerciEntityAbstract extends PopulableAbstract implements KomerciServiceInterface, ValidableInterface {
 

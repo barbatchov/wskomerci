@@ -12,6 +12,12 @@ use ws\komerci\types\VoidTransaction;
 use ws\komerci\types\PaymentReceipt;
 use ws\komerci\PopulableAbstract;
 
+/**
+ *
+ * @author Elias Alves Chacon <elias.alves.chacon@gmail.com>
+ * @since 2013-08-08
+ *
+ */
 class Komerci {
 
 	const SERVICES_URI = 'https://ecommerce.redecard.com.br/pos_virtual/wskomerci/cap.asmx';

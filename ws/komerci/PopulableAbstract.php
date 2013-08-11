@@ -4,6 +4,12 @@ namespace ws\komerci;
 
 use ws\komerci\types\Confirmation;
 
+/**
+ *
+ * @author Elias Alves Chacon <elias.alves.chacon@gmail.com>
+ * @since 2013-08-06
+ *
+ */
 class PopulableAbstract {
 
 	const KEY_CASE_UPPER = 'upper';

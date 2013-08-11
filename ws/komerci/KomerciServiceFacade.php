@@ -10,7 +10,6 @@ use ws\komerci\KomerciSoapClientAbstract;
  * @since 2013-08-07 02:29:30
  *       
  */
-
 class KomerciServiceFacade extends KomerciSoapClientAbstract {
 	/**
 	 * @return \ws\komerci\types\ConfirmTxnResponse
@@ -149,7 +148,6 @@ class KomerciServiceFacade extends KomerciSoapClientAbstract {
 	 */
 	public function VoidTransaction(\ws\komerci\types\VoidTransaction $param) {
 		return new \ws\komerci\types\VoidTransactionResponse(parent::call('VoidTransaction', $param));
-		//return new \ws\komerci\types\VoidTransactionResponse(parent::call('VoidTransaction', $param));
 	}
 	/**
 	 * @return \ws\komerci\types\VoidTransactionTstResponse

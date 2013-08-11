@@ -3,6 +3,12 @@ namespace ws\komerci\types;
 
 use \InvalidArgumentException;
 
+/**
+ *
+ * @author Elias Alves Chacon <elias.alves.chacon@gmail.com>
+ * @since 2013-08-08
+ *
+ */
 class RedecardUser {
 	const ERROR_FILIATION = 'Filiation not found or not a number!';
 	const ERROR_USER = 'User not found or not a number!';

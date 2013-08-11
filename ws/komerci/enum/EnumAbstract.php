@@ -1,6 +1,12 @@
 <?php
 namespace ws\komerci\enum;
 
+/**
+ *
+ * @author Elias Alves Chacon <elias.alves.chacon@gmail.com>
+ * @since 2013-08-10
+ *
+ */
 abstract class EnumAbstract {
 	private $values;
 	private $names;

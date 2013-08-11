@@ -5,6 +5,12 @@ namespace ws\komerci\validators;
 use ws\komerci\typemaps\TypeMapInterface;
 use ws\komerci\validators\ValidatorAbstract;
 
+/**
+ *
+ * @author Elias Alves Chacon <elias.alves.chacon@gmail.com>
+ * @since 2013-08-07
+ *
+ */
 class GenericValidator extends ValidatorAbstract {
 
 	/** @var ValidableInterface */
