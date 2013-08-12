@@ -269,7 +269,7 @@ class GetAuthorized extends KomerciEntityAbstract {
      * @return GetAuthorized
      */
     public function setTotal($param = null) {
-        $this->Total = $param;
+        $this->Total = number_format($param, 2, ".", "");
         return $this;
     }
 
@@ -278,6 +278,10 @@ class GetAuthorized extends KomerciEntityAbstract {
      * @return GetAuthorized
      */
     public function setTransacao($param = null) {
+		if ($param == \ws\komerci\enum\GetAuthorizedTransactionEnum::AVISTA) {
+			$this->setParcelas('00');
+		}
+
         $this->Transacao = $param;
         return $this;
     }
@@ -475,7 +479,7 @@ class GetAuthorized extends KomerciEntityAbstract {
      * @param \string
      * @return GetAuthorized
      */
-    public function setConfTxn($param = null) {
+    public function setConfTxn($param = 'S') {
         $this->ConfTxn = $param;
         return $this;
     }

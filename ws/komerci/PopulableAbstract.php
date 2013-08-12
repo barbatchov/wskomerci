@@ -2,8 +2,6 @@
 
 namespace ws\komerci;
 
-use ws\komerci\types\Confirmation;
-
 /**
  *
  * @author Elias Alves Chacon <elias.alves.chacon@gmail.com>
@@ -19,7 +17,7 @@ class PopulableAbstract {
 	/**
 	 * Constructor used to populate data
 	 *
-	 * @param $data stdObject|array       	
+	 * @param $data stdObject|array
 	 */
 	public function __construct($data = null) {
 		if (is_array($data)) {
@@ -32,32 +30,64 @@ class PopulableAbstract {
 	/**
 	 * Populates the object with a given array
 	 *
-	 * @param $data array       	
+	 * @param $data array
 	 */
 	public function populate($data = array()) {
 		$objectVars = get_object_vars($this);
-		
+
 		foreach ($objectVars as $attr => $value) {
-			(! isset($data[$attr])) ? null : $this->{'set' . ucfirst($attr)}($data[$attr]);
+			$upper = strtoupper($attr);
+
+			// nao existe nenhum
+			if (!isset($data[$attr]) && !isset($data[$upper])) {
+				continue;
+			}
+
+			// existe o atributo em upercase
+			if (!isset($data[$attr]) && isset($data[$upper])) {
+				$expectedValue = $data[$upper];
+
+				$this->{'set' . ucfirst(strtolower($attr))}($expectedValue);
+				continue;
+			}
+
+			// existe o atributo como veio
+			if (isset($data[$attr])) {
+				$expectedValue = $data[$attr];
+
+				$this->{'set' . ucfirst($attr)}($expectedValue);
+			}
 		}
 	}
 
 	/**
 	 * Populates the object with a given stdClass object
 	 *
-	 * @param $stdObject stdClass       	
+	 * @param $stdObject stdClass
 	 */
 	public function cast($stdObject = null) {
 		$objectVars = get_object_vars($this);
-		
+
 		foreach ($objectVars as $attr => $value) {
+			$upper = strtoupper($attr);
+
+			// nao existe nenhum
+			if (!isset($stdObject->{$attr}) && !isset($stdObject->{$upper})) {
+				continue;
+			}
+
+			// existe o atributo em upercase
+			if (!isset($stdObject->{$attr}) && isset($stdObject->{$upper})) {
+				$expectedValue = $stdObject->{$upper};
+
+				$this->{'set' . ucfirst(strtolower($attr))}($expectedValue);
+				continue;
+			}
+
+			// existe o atributo como veio
 			if (isset($stdObject->{$attr})) {
 				$expectedValue = $stdObject->{$attr};
-				
-				if ($attr == 'any') {
-					$expectedValue = new Confirmation(json_decode(json_encode(simplexml_load_string($stdObject->{$attr})))->root);
-				}
-				
+
 				$this->{'set' . ucfirst($attr)}($expectedValue);
 			}
 		}
@@ -72,7 +102,7 @@ class PopulableAbstract {
 		if ($returnVoid) {
 			return $this->changeArrayKeysCase(get_object_vars($this), $keyCaseType);
 		}
-		
+
 		return $this->changeArrayKeysCase(array_filter(get_object_vars($this), create_function('$v', 'return null != $v;')), $keyCaseType);
 	}
 
@@ -90,14 +120,14 @@ class PopulableAbstract {
 				}
 				return $new;
 				break;
-			
+
 			case self::KEY_CASE_UPPER :
 				foreach ($array as $key => $value) {
 					$new[strtoupper($key)] = $value;
 				}
 				return $new;
 				break;
-			
+
 			default :
 				return $array;
 		}

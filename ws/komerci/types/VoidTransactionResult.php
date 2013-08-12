@@ -3,9 +3,7 @@
 namespace ws\komerci\types;
 
 use \ws\komerci\KomerciEntityAbstract;
-use \ws\komerci\KomerciServiceInterface;
-use \ws\komerci\decorators\KomerciValidableInterface;
-
+use \ws\komerci\types\Confirmation;
 
 /**
  *
@@ -18,7 +16,7 @@ class VoidTransactionResult extends KomerciEntityAbstract {
     public $any;
 
     /**
-     * @return any
+     * @return Confirmation|any
      */
     public function getAny() {
         return $this->any;
@@ -29,7 +27,7 @@ class VoidTransactionResult extends KomerciEntityAbstract {
      * @return VoidTransactionResult
      */
     public function setAny( $param = null) {
-        $this->any = $param;
+		$this->any = $this->parseXmlResultToConfirmation($param);
         return $this;
     }
 

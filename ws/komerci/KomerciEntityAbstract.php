@@ -4,6 +4,7 @@ namespace ws\komerci;
 
 use ws\komerci\validators\ValidableInterface;
 use ws\komerci\validators\GenericValidator;
+use ws\komerci\types\Confirmation;
 
 /**
  *
@@ -26,5 +27,36 @@ abstract class KomerciEntityAbstract extends PopulableAbstract implements Komerc
             $validator->isValid();
         }
     }
+
+    /**
+	 * Changes the keys to lower and creates the new confirmation object
+	 * 
+     * @return \ws\komerci\types\Confirmation|any
+     */
+	protected function parseXmlResultToConfirmation($param) {
+		$any = $param;
+
+		if (preg_match('/<.*?>/', $param)) {
+			$new = new \stdClass();
+			$obj = json_decode(json_encode(simplexml_load_string($param)));
+
+			if (isset($obj->root)) {
+				foreach ($obj->root as $attr => $value){
+					$new->{strtolower($attr)} = $value;
+				}
+
+				$any = new Confirmation($new);
+
+			} else {
+				foreach ($obj as $attr => $value){
+					$new->{strtolower($attr)} = $value;
+				}
+
+				$any = new Confirmation($obj);
+			}
+		}
+
+        return $any;
+	}
 
 }

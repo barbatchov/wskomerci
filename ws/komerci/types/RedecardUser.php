@@ -25,9 +25,9 @@ class RedecardUser {
 	 */
 	public function __construct($filiation = '', $user = '', $password = '') {
 		$this
-		->setFiliation($filiation)
-		->setPassword($password)
-		->setUser($user);
+			->setFiliation($filiation)
+			->setPassword($password)
+			->setUser($user);
 	}
 	
 	/**
