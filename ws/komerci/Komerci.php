@@ -2,15 +2,15 @@
 
 namespace ws\komerci;
 
-use ws\komerci\KomerciEntityAbstract;
-use ws\komerci\KomerciServiceFacade;
-use ws\komerci\types\GetAuthorized;
-use ws\komerci\types\GetAuthorizedTst;
-use ws\komerci\types\RedecardUser;
-use ws\komerci\types\VoidTransaction;
-use ws\komerci\types\PaymentReceipt;
-use ws\komerci\PopulableAbstract;
-use ws\komerci\KomerciException;
+use \ws\komerci\KomerciEntityAbstract;
+use \ws\komerci\KomerciServiceFacade;
+use \ws\komerci\types\GetAuthorized;
+use \ws\komerci\types\GetAuthorizedTst;
+use \ws\komerci\types\RedecardUser;
+use \ws\komerci\types\VoidTransaction;
+use \ws\komerci\types\PaymentReceipt;
+use \ws\komerci\PopulableAbstract;
+use \ws\komerci\KomerciException;
 
 /**
  *
@@ -56,7 +56,7 @@ class Komerci {
 		try {
 			xdebug_disable();
 			return $this->service = new KomerciServiceFacade(self::SERVICES_URI);
-		} catch (Exception $e) {
+		} catch (\Exception $e) {
 			throw new KomerciException($e);
 		}
 	}

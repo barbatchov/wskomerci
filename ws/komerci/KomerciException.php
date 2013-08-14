@@ -1,10 +1,10 @@
 <?php
 
-namespace \ws\komerci;
+namespace ws\komerci;
 
 /**
  *
  * @author Elias Alves Chacon
  *
  */
-class KomerciException extends Exception {}
+class KomerciException extends \Exception {}
