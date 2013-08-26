@@ -1,4 +1,4 @@
-﻿<?PHP
+<?PHP
 
 namespace ws\komerci\types;
 

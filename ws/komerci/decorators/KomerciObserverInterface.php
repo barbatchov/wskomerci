@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 namespace ws\komerci\decorators;
 
 /**
