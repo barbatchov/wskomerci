@@ -13,7 +13,7 @@ abstract class KomerciLogAdapterAbstract {
 	/**
 	 * Sets the log file name
 	 * 
-	 * @param type $filename
+	 * @param string $filename
 	 * @return \ws\komerci\adapter\KomerciLogAdapterAbstract
 	 */
 	public function setLogFileName ($filename = '') {
@@ -24,6 +24,17 @@ abstract class KomerciLogAdapterAbstract {
 		return $this;
 	}
 	
+	/**
+	 * Returns the log filename
+	 * 
+	 * @return string
+	 */
+	protected function getLogFileName () {
+		if (!empty($this->logFileName)) {
+			return $this->logFileName;
+		}
+	}
+
 	public abstract function log ($level = '', $message = '', $throwable = false);
 	public abstract function info ($message = '', $throwable = false);
 	public abstract function warning ($message = '', $throwable = false);

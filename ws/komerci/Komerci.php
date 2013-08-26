@@ -11,6 +11,7 @@ use \ws\komerci\types\VoidTransaction;
 use \ws\komerci\types\PaymentReceipt;
 use \ws\komerci\PopulableAbstract;
 use \ws\komerci\KomerciException;
+use \ws\komerci\adapter\KomerciLogAdapterAbstract;
 
 /**
  *
@@ -33,6 +34,11 @@ class Komerci {
 	 * @var \ws\komerci\KomerciServiceFacade
 	 */
 	private $service;
+	
+	/**
+	 * @var \ws\komerci\adapter\KomerciLogAdapterAbstract 
+	 */
+	private $logger;
 
 	/**
 	 *
@@ -42,6 +48,13 @@ class Komerci {
 	 */
 	public function __construct(RedecardUser $user) {
 		$this->user = $user;
+	}
+	
+	public function addLogger(KomerciLogAdapterAbstract $logger = null) {
+		$this->logger = $logger;
+		if ($this->service) {
+			$this->service->setLogger($logger);
+		}
 	}
 
 	/**
@@ -55,7 +68,9 @@ class Komerci {
 
 		try {
 			xdebug_disable();
-			return $this->service = new KomerciServiceFacade(self::SERVICES_URI);
+			$this->service = new KomerciServiceFacade(self::SERVICES_URI);
+			$this->service->setLogger($this->logger);
+			return $this->service;
 		} catch (\Exception $e) {
 			throw new KomerciException($e);
 		}
