@@ -18,7 +18,7 @@ class SalesSummResult extends KomerciEntityAbstract {
     public $any;
 
     /**
-     * @return any
+     * @return Confirmation|any
      */
     public function getAny() {
         return $this->any;
@@ -28,8 +28,8 @@ class SalesSummResult extends KomerciEntityAbstract {
      * @param any
      * @return SalesSummResult
      */
-    public function setAny( $param = null) {
-        $this->any = $param;
+    public function setAny($param = null) {
+        $this->any = $this->parseXmlResultToConfirmation($param);
         return $this;
     }
 

@@ -53,8 +53,8 @@ class PopulableAbstract {
 
 			// existe o atributo como veio
 			if (isset($data[$attr])) {
-				$expectedValue = $data[$attr];
-
+				//$expectedValue = $data[$attr];
+				$expectedValue = (class_exists($attr)) ? new $attr($data[$attr]) : $data[$attr];
 				$this->{'set' . ucfirst($attr)}($expectedValue);
 			}
 		}

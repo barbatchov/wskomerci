@@ -5,10 +5,10 @@ namespace ws\komerci;
 use \ws\komerci\KomerciEntityAbstract;
 use \ws\komerci\KomerciServiceFacade;
 use \ws\komerci\types\GetAuthorized;
-use \ws\komerci\types\GetAuthorizedTst;
 use \ws\komerci\types\RedecardUser;
 use \ws\komerci\types\VoidTransaction;
 use \ws\komerci\types\PaymentReceipt;
+use \ws\komerci\AuthorizingError;
 use \ws\komerci\PopulableAbstract;
 use \ws\komerci\KomerciException;
 use \ws\komerci\adapter\KomerciLogAdapterAbstract;
@@ -21,8 +21,7 @@ use \ws\komerci\adapter\KomerciLogAdapterAbstract;
  */
 class Komerci {
 
-	const SERVICES_URI = 'https://ecommerce.redecard.com.br/pos_virtual/wskomerci/cap.asmx';
-
+	const SERVICES_URI = 'https://ecommerce.redecard.com.br/pos_virtual/wskomerci/cap.asmx?WSDL';
 	const RECEIPT_URI = 'https://ecommerce.redecard.com.br/pos_virtual/cupom.asp';
 
 	/**
@@ -34,11 +33,16 @@ class Komerci {
 	 * @var \ws\komerci\KomerciServiceFacade
 	 */
 	private $service;
-	
+
 	/**
-	 * @var \ws\komerci\adapter\KomerciLogAdapterAbstract 
+	 * @var \ws\komerci\adapter\KomerciLogAdapterAbstract
 	 */
 	private $logger;
+
+	/**
+	 * @var \ws\komerci\AuthorizingError
+	 */
+	private $authError;
 
 	/**
 	 *
@@ -48,15 +52,22 @@ class Komerci {
 	 */
 	public function __construct(RedecardUser $user) {
 		$this->user = $user;
+		$this->authError = new AuthorizingError();
 	}
-	
+
+	/**
+	 * Set a logger
+	 * @param \ws\komerci\adapter\KomerciLogAdapterAbstract $logger
+	 * @return \ws\komerci\Komerci
+	 */
 	public function addLogger(KomerciLogAdapterAbstract $logger = null) {
 		$this->logger = $logger;
 		if ($this->service) {
 			$this->service->setLogger($logger);
 		}
-	}
 
+		return $this;
+	}
 	/**
 	 *
 	 * @return \ws\komerci\KomerciServiceFacade
@@ -89,19 +100,7 @@ class Komerci {
 			throw new KomerciException($result->getMsgret());
 		}
 
-		return $result;
-	}
-
-	/**
-	 *
-	 * @param GetAuthorizedTst $authorized
-	 * @return \ws\komerci\types\Confirmation
-	 */
-	public function directPayTest(GetAuthorizedTst $authorized) {
-		$this->parseUserParams($authorized);
-		$result = $this->getService()->GetAuthorizedTst($authorized)->getGetAuthorizedTstResult()->getAny();
-
-		if (!$result->getNumcv()) {
+		if ($this->authError->getError($result->getCodret())) {
 			throw new KomerciException($result->getMsgret());
 		}
 
@@ -109,13 +108,21 @@ class Komerci {
 	}
 
 	/**
+	 * @param SalesSumm $param
+	 * @return Confirmation
+	 */
+	public function salesSumm(SalesSumm $param) {
+		return $this->getService()->SalesSumm($param)->getSalesSummResult()->getAny();
+	}
+
+	/**
 	 *
 	 * @param VoidTransaction $voidTransaction
-	 * @return \ws\komerci\types\VoidTransactionResponse
+	 * @return \ws\komerci\types\Confirmation
 	 */
 	public function directDebitReverse(VoidTransaction $voidTransaction) {
 		$this->parseUserParams($voidTransaction);
-		$result = $this->getService()->VoidTransaction($voidTransaction);
+		$result = $this->getService()->VoidTransaction($voidTransaction)->getVoidTransactionResult()->getAny();
 		return $result;
 	}
 
@@ -126,20 +133,7 @@ class Komerci {
 	  */
 	public function paymentReceipt(PaymentReceipt $paymentReceipt) {
 		$this->parseUserParams($paymentReceipt);
-
-		$curl = curl_init();
-		curl_setopt_array($curl, array (
-				'CURLOPT_URL' => self::RECEIPT_URI,
-				'CURLOPT_POST' => true,
-				'CURLOPT_POSTFIELDS' => $paymentReceipt->toArray(false, PopulableAbstract::KEY_CASE_UPPER),
-				'CURLOPT_RETURNTRANSFER' => true,
-				'CURLOPT_HEADER', false,
-				'CURLOPT_TIMEOUT' => 30,
-				'CURLOPT_SSL_VERIFYPEER' => false));
-
-		$receipt = curl_exec($curl);
-		curl_close($curl);
-
+		$receipt = $this->getOnlineReceipt($paymentReceipt->toArray(false, PopulableAbstract::KEY_CASE_UPPER));
 		$receipt = str_replace("Imagens/", "https://ecommerce.redecard.com.br/pos_virtual/Imagens/", $receipt);
 		$receipt = str_replace("Css/", "https://ecommerce.redecard.com.br/pos_virtual/Css/", $receipt);
 		$receipt = str_replace("Cupom.aspx", "https://ecommerce.redecard.com.br/pos_virtual/Cupom.aspx", $receipt);
@@ -163,6 +157,26 @@ class Komerci {
 
 		$result = $this->getService()->{$serviceMethod}($entity);
 		return $result;
+	}
+
+	/**
+	 *
+	 * @param type $post
+	 * @return type
+	 */
+	public function getOnlineReceipt($post = array()) {
+		$curl = curl_init();
+		curl_setopt_array($curl, array (
+				'CURLOPT_URL' => self::RECEIPT_URI,
+				'CURLOPT_POST' => true,
+				'CURLOPT_POSTFIELDS' => $post,
+				'CURLOPT_RETURNTRANSFER' => true,
+				'CURLOPT_HEADER', false,
+				'CURLOPT_TIMEOUT' => 30,
+				'CURLOPT_SSL_VERIFYPEER' => false));
+		$receipt = curl_exec($curl);
+		curl_close($curl);
+		return $receipt;
 	}
 
 	/**

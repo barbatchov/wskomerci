@@ -28,10 +28,15 @@ abstract class KomerciSoapClientAbstract extends SoapClient {
 	 * @param options[optional]
 	 *
 	 */
-	public function __construct($wsdl = '', $options = array('trace' => 1), KomerciLogAdapterAbstract $logger = null) {
-		parent::SoapClient($wsdl, $options);
-
-		$this->setLogger($logger);
+	public function __construct($wsdl = '') {
+		parent::SoapClient($wsdl, array(
+					'trace'        => 1,
+					'exceptions'   => 1,
+					'style'        => SOAP_DOCUMENT,
+					'use'          => SOAP_LITERAL,
+					'soap_version' => SOAP_1_1,
+					'encoding'     => 'UTF-8'
+                ));
 	}
 
 	protected function call($functionName = '', KomerciEntityAbstract $arguments = null, $options = array(), 

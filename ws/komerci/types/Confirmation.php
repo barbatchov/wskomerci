@@ -83,9 +83,11 @@ class Confirmation extends KomerciEntityAbstract {
 		$this->numpedido = $numpedido;
 		return $this;
 	}
-
+	/**
+	 * @return \DateTime
+	 */
 	public function getData() {
-		return $this->data;
+		return \DateTime::createFromFormat('Ymd', $this->data);
 	}
 
 	public function setData($data) {

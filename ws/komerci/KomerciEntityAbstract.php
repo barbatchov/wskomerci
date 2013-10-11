@@ -42,14 +42,14 @@ abstract class KomerciEntityAbstract extends PopulableAbstract implements Komerc
 
 			if (isset($obj->root)) {
 				foreach ($obj->root as $attr => $value){
-					$new->{strtolower($attr)} = $value;
+					$new->{strtolower($attr)} = (is_string($value)) ? trim("$value") : $value;
 				}
 
 				$any = new Confirmation($new);
 
 			} else {
 				foreach ($obj as $attr => $value){
-					$new->{strtolower($attr)} = $value;
+					$new->{strtolower($attr)} = (is_string($value)) ? trim("$value") : $value;
 				}
 
 				$any = new Confirmation($obj);
