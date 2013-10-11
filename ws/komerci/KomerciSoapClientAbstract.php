@@ -16,6 +16,9 @@ use \ws\komerci\adapter\KomerciLogAdapterAbstract;
  */
 abstract class KomerciSoapClientAbstract extends SoapClient {
 
+	/** @var \SoapClient */
+	private $soapClient;
+
 	/** @var \ws\komerci\adapter\KomerciLogAdapterAbstract */
 	private $logger;
 
@@ -29,28 +32,30 @@ abstract class KomerciSoapClientAbstract extends SoapClient {
 	 *
 	 */
 	public function __construct($wsdl = '') {
-		parent::SoapClient($wsdl, array(
-					'trace'        => 1,
-					'exceptions'   => 1,
-					'style'        => SOAP_DOCUMENT,
-					'use'          => SOAP_LITERAL,
-					'soap_version' => SOAP_1_1,
-					'encoding'     => 'UTF-8'
-                ));
+		$this->soapClient = new SoapClient($wsdl,
+			array(
+				'trace'        => 1,
+				'exceptions'   => 1,
+				'style'        => SOAP_DOCUMENT,
+				'use'          => SOAP_LITERAL,
+				'soap_version' => SOAP_1_1,
+				'encoding'     => 'UTF-8'
+			)
+		);
 	}
 
-	protected function call($functionName = '', KomerciEntityAbstract $arguments = null, $options = array(), 
-			$inputHeaders = null, &$outputHeaders = array()) {
-
+	/**
+	 * @param string $functionName
+	 * @param \ws\komerci\KomerciEntityAbstract $arguments
+	 * @return any
+	 * @throws KomerciException
+	 */
+	protected function call($functionName = '', KomerciEntityAbstract $arguments = null) {
 		try {
-			$args = $arguments->toArray();
-			$result = get_object_vars(parent::__soapCall($functionName, $args, $options, $inputHeaders, $outputHeaders));
-
+			$result = get_object_vars($this->soapClient->{$functionName}($arguments));
 			$this->logProcess();
-
 			return $result;
-			//return parent::__call($functionName, $args); //deprecated
-			
+
 		} catch (SoapFault $e) {
 			$this->logProcess();
 			throw new KomerciException($e);
@@ -59,7 +64,7 @@ abstract class KomerciSoapClientAbstract extends SoapClient {
 
 	/**
 	 * Set a logger for log the call process
-	 * 
+	 *
 	 * @param \ws\komerci\adapter\KomerciLogAdapterAbstract $logger
 	 * @return \ws\komerci\KomerciSoapClientAbstract
 	 */
