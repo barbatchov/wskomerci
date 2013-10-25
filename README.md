@@ -1,6 +1,6 @@
-wskomerci v 1.0.1
+wskomerci v 1.0.21
 =================
-last release date 2013-10-24
+last release date 2013-10-25
 
 Wskomerci is an php implementation of the Redecard's soap gateway
 -----------------------------------------------------------------
