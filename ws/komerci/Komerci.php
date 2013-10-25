@@ -167,13 +167,13 @@ class Komerci {
 	public function getOnlineReceipt($post = array()) {
 		$curl = curl_init();
 		curl_setopt_array($curl, array (
-				'CURLOPT_URL' => self::RECEIPT_URI,
-				'CURLOPT_POST' => true,
-				'CURLOPT_POSTFIELDS' => $post,
-				'CURLOPT_RETURNTRANSFER' => true,
-				'CURLOPT_HEADER', false,
-				'CURLOPT_TIMEOUT' => 30,
-				'CURLOPT_SSL_VERIFYPEER' => false));
+				CURLOPT_URL => self::RECEIPT_URI,
+				CURLOPT_POST => true,
+				CURLOPT_POSTFIELDS => $post,
+				CURLOPT_RETURNTRANSFER => true,
+				CURLOPT_HEADER, false,
+				CURLOPT_TIMEOUT => 30,
+				CURLOPT_SSL_VERIFYPEER => false));
 		$receipt = curl_exec($curl);
 		curl_close($curl);
 		return $receipt;
