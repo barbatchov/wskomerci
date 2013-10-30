@@ -23,25 +23,26 @@ abstract class KomerciSoapClientAbstract extends SoapClient {
 	private $logger;
 
 	/**
-	 *
-	 * @link http://www.php.net/manual/en/soapclient.soapclient.php
-	 *
 	 * @param wsdl
-	 *
-	 * @param options[optional]
+         * @param \SoapClient $soapClient The spl soap client or null
 	 *
 	 */
-	public function __construct($wsdl = '') {
-		$this->soapClient = new SoapClient($wsdl,
-			array(
-				'trace'        => 1,
-				'exceptions'   => 1,
-				'style'        => SOAP_DOCUMENT,
-				'use'          => SOAP_LITERAL,
-				'soap_version' => SOAP_1_1,
-				'encoding'     => 'UTF-8'
-			)
+	public function __construct($wsdl = '', \SoapClient $soapClient = null) {
+
+            if (!$soapClient) {
+		$soapClient = new SoapClient($wsdl,
+                    array(
+                        'trace'        => 1,
+                        'exceptions'   => 1,
+                        'style'        => SOAP_DOCUMENT,
+                        'use'          => SOAP_LITERAL,
+                        'soap_version' => SOAP_1_1,
+                        'encoding'     => 'UTF-8'
+                    )
 		);
+            }
+
+            $this->soapClient = $soapClient;
 	}
 
 	/**
